@@ -57,6 +57,19 @@ Budget file:
 
 # Alecs's Pseudocode --------------------------------------------------------------------------------------------------------------------------
 
+
+
+Functoin for displaying a graph
+    ASK user whether they want to see a pie chart or line graph
+    SET answer to input variable
+    IF input is pie chart THEN
+        DISPLAY pie chart with expenses
+
+    ELSE IF input is line graph THEN
+        DISPLAY line graph with expenses over time
+
+
+
 # Luke's Pseudocode ---------------------------------------------------------------------------------------------------------------------------
 
 Procedure for reading the user file
@@ -66,9 +79,9 @@ Procedure for reading the user file
         (This is not done to the first row, which its deatils are the keys for each dictionary)
     This then returns the list of all the dictionaries created
 
-Procedure for writing the user file
+Procedure for writing to the user file
     Open File
-    Write File with DictWriter and the keys of the dictionary on the header and then for the rest of the rows using the list of dictionaries provided from the read file function
+    Write to file with DictWriter and the keys of the dictionary on the header and then for the rest of the rows using the list of dictionaries provided from the read file function
 
 Procedure for goal menu
     Find if the user wants to create a goal, add to a goal's progress, view a goal, or exit to main menu
@@ -84,7 +97,7 @@ Procedure for adding to goal
     Add the money to their goal and write to file
 
 Procedure for viewing goals and Progress
-    Find out which goal they want to view or if they wanto view all of them
+    Find out which goal they want to view or if they want to view all of them
     Display their desired goal's information and progress percentage
 
 Procedure for currency converter: Euro (EUR) 0.91502, Japanese yen (JPY) 149.53, and Canadian dollar (CAD) 1.42967
