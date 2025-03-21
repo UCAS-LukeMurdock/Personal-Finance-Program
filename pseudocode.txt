@@ -2,44 +2,56 @@ Personal Finance Program - Luke Murdock, Alishya Xavier, Alec George
 
 
 # Alishya's Pseudocode ------------------------------------------------------------------------------------------------------------------------
-Main Function
-    Procedure to have multiple user profiles
-        Loop this until they choose exit
-        INPUT options to either log in, sign up, exit
-            If INPUT is sign up 
-                INPUT users name and passwowrd
-                Saves it to a file 
-                CONTINUE the Loop
-            If INPUT is log in 
-                INPUT user name and passwowrd
-                If it is in the file
-                    Break out of the loop
-                ELSE   
-                    DISPLAY that the info isn't correct
-                    CONTINUE the loop
-            If INPUT is exit 
-                End the program
-            ELSE
-                DISPLAY that it isn't an options
-                CONTINUE the loop
-    
-    Procedure to make the main menu
+Main file:
+
+    Main menu Function
         Loop this until they choose Log out 
-        INPUT options to either chhoose to Entry track, Budget, Savings Goal, or Log out
+        INPUT options to either choose to Entry track, Budget, Savings Goal, or Log out
             If INPUT is Entry tracking
-                INPUT if they want to add income entry, add expense entry, view total income and expenses, or exit
+                Call entry tracking function
             If INPUT is Budget
-                INPUT limit for each of their expenses(Housing, Food, Utilities, Transportation, Insurance)
-                Compares the expenses to the limit inside the file
-                DISPLAY comparision
+                Call buget function
             If INPUT is Savings Goal
-                #Luke's Code 
+                Call goal menu 
             If INPUT is Log out
-                Call the main function again
+                Call the sign in function
             ELSE
                 DISPLAY that isn't an options
                 Continue the loop
 
+    Sign in Function(User Interface):
+        Procedure to have multiple user profiles
+            Loop this until they choose exit
+            INPUT options to either log in, sign up, exit
+                If INPUT is sign up 
+                    INPUT users name and password
+                    Saves it to a file 
+                    CONTINUE the Loop
+                If INPUT is log in 
+                    INPUT user name and password
+                    If it is in the file
+                        Call main menu function
+                    ELSE   
+                        DISPLAY that the info isn't correct
+                        CONTINUE the loop
+                If INPUT is exit 
+                    End the program
+                ELSE
+                    DISPLAY that it isn't an options
+                    CONTINUE the loop
+
+Entry tracking file:
+    Entry tracking function
+        INPUT if they want to add income entry, add expense entry, view total income and expenses, or exit
+        If they want to add income entry
+        INPUT their income entry
+        Save that and write it to a file
+
+Budget file:
+    Budget function
+        INPUT limit for each of their expenses(Housing, Food, Utilities, Transportation, Insurance)
+        Compares the expenses to the limit inside the file
+        DISPLAY comparision
 
 
 
