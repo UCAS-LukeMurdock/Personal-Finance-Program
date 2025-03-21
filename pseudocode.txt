@@ -45,6 +45,19 @@ Main Function
 
 # Alecs's Pseudocode --------------------------------------------------------------------------------------------------------------------------
 
+
+
+Functoin for displaying a graph
+    ASK user whether they want to see a pie chart or line graph
+    SET answer to input variable
+    IF input is pie chart THEN
+        DISPLAY pie chart with expenses
+
+    ELSE IF input is line graph THEN
+        DISPLAY line graph with expenses over time
+
+
+
 # Luke's Pseudocode ---------------------------------------------------------------------------------------------------------------------------
 
 Procedure for reading the user file
