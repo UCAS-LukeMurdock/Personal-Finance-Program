@@ -1,4 +1,4 @@
-# Personal Finance Project -Luke Murdock, Alishya Xavier, Alec George
+# Personal Finance Project - Luke Murdock, Alishya Xavier, Alec George
 # Alec George, Main
 
 
