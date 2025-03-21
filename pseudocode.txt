@@ -39,6 +39,7 @@ Main file:
                 ELSE
                     DISPLAY that it isn't an options
                     CONTINUE the loop
+    Call Sign in Function
 
 Entry tracking file:
     Entry tracking function
