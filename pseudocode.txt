@@ -2,8 +2,87 @@ Personal Finance Program - Luke Murdock, Alishya Xavier, Alec George
 
 
 # Alishya's Pseudocode ------------------------------------------------------------------------------------------------------------------------
+Main file:
+
+    Main menu Function
+        Loop this until they choose Log out 
+            INPUT options to either choose to Entry track, Budget, Savings Goal, or Log out
+            If INPUT is Entry tracking
+                Call entry tracking function
+            If INPUT is Budget
+                Call buget function
+            If INPUT is Savings Goal
+                Call goal menu 
+            If INPUT is Log out
+                Call the sign in function
+            ELSE
+                DISPLAY that isn't an options
+                Continue the loop
+
+    Sign in Function(User Interface):
+        Procedure to have multiple user profiles
+            Loop this until they choose exit
+            INPUT options to either log in, sign up, exit
+                If INPUT is sign up 
+                    INPUT users name and password
+                    Saves it to a file 
+                    CONTINUE the Loop
+                If INPUT is log in 
+                    INPUT user name and password
+                    If it is in the file
+                        Call main menu function
+                    ELSE   
+                        DISPLAY that the info isn't correct
+                        CONTINUE the loop
+                If INPUT is exit 
+                    End the program
+                ELSE
+                    DISPLAY that it isn't an options
+                    CONTINUE the loop
+    Call Sign in Function
+
+Entry tracking file:
+    Entry tracking function
+        Loop until exit
+            INPUT if they want to add income entry, add expense entry, view total income and expenses, or exit
+            If they want to add income entry
+                INPUT their income entry
+                Save that and write it to a file
+            If they want to add expense entry
+                INPUT their expense entry
+                Save that and write it to a file
+            If they want to view total income and expenses
+                Input is they want to see data visualization or time period
+                If data visualization
+                    Call displaying graph function
+                If time period
+                    INPUT specified time period
+                    DISPLAY total income and expenses for time period
+            If they want to exit
+                exit to main menu(break out of loop)
+
+Budget file:
+    Budget function
+        INPUT limit for each of their expenses(Housing, Food, Utilities, Transportation, Insurance)
+        Compares the expenses to the limit inside the file
+        DISPLAY comparision
+
+
 
 # Alecs's Pseudocode --------------------------------------------------------------------------------------------------------------------------
+
+
+
+Functoin for displaying a graph
+    ASK user whether they want to see a pie chart or line graph
+    SET answer to input variable
+    IF input is pie chart THEN
+        DISPLAY pie chart with expenses
+
+    ELSE IF input is line graph THEN
+        DISPLAY line graph with expenses over time
+
+
 
 # Luke's Pseudocode ---------------------------------------------------------------------------------------------------------------------------
 
@@ -14,9 +93,9 @@ Procedure for reading the user file
         (This is not done to the first row, which its deatils are the keys for each dictionary)
     This then returns the list of all the dictionaries created
 
-Procedure for writing the user file
+Procedure for writing to the user file
     Open File
-    Write File with DictWriter and the keys of the dictionary on the header and then for the rest of the rows using the list of dictionaries provided from the read file function
+    Write to file with DictWriter and the keys of the dictionary on the header and then for the rest of the rows using the list of dictionaries provided from the read file function
 
 Procedure for goal menu
     Find if the user wants to create a goal, add to a goal's progress, view a goal, or exit to main menu
@@ -32,7 +111,7 @@ Procedure for adding to goal
     Add the money to their goal and write to file
 
 Procedure for viewing goals and Progress
-    Find out which goal they want to view or if they wanto view all of them
+    Find out which goal they want to view or if they want to view all of them
     Display their desired goal's information and progress percentage
 
 Procedure for currency converter: Euro (EUR) 0.91502, Japanese yen (JPY) 149.53, and Canadian dollar (CAD) 1.42967
