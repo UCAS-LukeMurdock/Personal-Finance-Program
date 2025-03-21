@@ -19,7 +19,7 @@ Procedure for writing the user file
     Write File with DictWriter and the keys of the dictionary on the header and then for the rest of the rows using the list of dictionaries provided from the read file function
 
 Procedure for goal menu
-    Find if the user wants to create a goal, add to a goal's progress, view a goal, or exit to the main menu.
+    Find if the user wants to create a goal, add to a goal's progress, view a goal, or exit to main menu
     Goes to the desired procedure below
 
 Procedure for creating new goal
