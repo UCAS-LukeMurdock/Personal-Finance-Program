@@ -1,5 +1,6 @@
 # Personal Finance Project - Luke Murdock, Alishya Xavier, Alec George
-# Alec George, Main
+# Alishya Xavier, Main File
+
 from file_handler import read_file, write_file
 from entry_tracking import entry_tracking
 from budget import budget
@@ -7,11 +8,10 @@ from goals import goal_menu
 from currency import convert
 
 
-
 def menu(): # Introduces the program and then lets the user choose one of the options
-    print("Welcome to this Personal Finance Program, where you can track entries, budget, and make savings goals.")
+    print("\nWelcome to this Personal Finance Program, where you can track entries, budget, and make savings goals.")
     while True:
-        choice = input("What would you like to do:\n1. Entry track\n2. Budget\n3. Savings goal\n4. Currency Converter\n5. Log out\nChoice: ")
+        choice = input("\nWhat would you like to do:\n1. Entry track\n2. Budget\n3. Savings goal\n4. Currency Converter\n5. Log out\nChoice: ")
         if choice == '1':
             entry_tracking()
         elif choice == '2':
@@ -25,12 +25,11 @@ def menu(): # Introduces the program and then lets the user choose one of the op
             exit()     
         else:
             print("That is not an option. Please try again...")
-            
 
 def sign_in():
     user_profiles = read_file()
     while True:
-        sign_in_choice = input("What would you like to do:\n1. Log in\n2. Sign up\n3. Exit\nChoice: ")
+        sign_in_choice = input("\nWhat would you like to do:\n1. Log in\n2. Sign up\n3. Exit\nChoice: ")
         if sign_in_choice == '1':
             user_name = input('Username: ')
             password = input('Password: ')
@@ -44,10 +43,14 @@ def sign_in():
         elif sign_in_choice == '2':
             sign_up_user_name = input('Username: ')
             sign_up_password = input('Password: ')
-            #Save what they wrote into the file for their account
-            write_file(user_profiles)
-            # Luke will work on it
-            continue #Now they go back and can go log in to that account
+            profile = {
+                "Name": sign_up_user_name,
+                "Password": sign_up_password,
+                "Entries": [],
+                "Budget": "GET RID OF?",
+                "Goals": [],}
+            write_file(user_profiles.append(profile))
+            print("Created New Profile") #Now they go back and can go log in to that account
 
         elif sign_in_choice == '3':
             print('Thankyou for using your Personal Finance Program!')
@@ -56,7 +59,8 @@ def sign_in():
             print('That is not an option. Try again...')
             
             
-                
-
 #We should figure out user index so that we can know which user is signed in etc.
+    # We can either put it through parameters, put it on the file and use a function to find the signed in user, or global it somehow
+# Get rid of Budget on file
+print("\n\nPersonal Finance Program")
 sign_in()
