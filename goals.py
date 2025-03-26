@@ -1,5 +1,5 @@
 # Luke Murdock, Savings Goals
-from file_handler import read_file, write_file, intput
+from file_handler import read_file, write_file, find_active, intput
 """
 Procedure for goal menu
     Find if the user wants to create a goal, add to a goal's progress, view a goal, or exit to main menu
@@ -21,13 +21,25 @@ Procedure for viewing goals and Progress
 
 def create(): # 
     profiles = read_file()
+    user_ind = find_active(profiles)
     goal = input("What is your Savings Goal?: \n")
     profiles[user_ind]["Goals"].append((goal,0))
-    write_file()
+    write_file(profiles)
 
 def add(): # 
-    goal = input("Which Goal amount did you want to add to?:\n")
-    amount = input("How much money do you want to add to it?:\n")
+    profiles = read_file()
+    user_ind = find_active(profiles)
+    while True:
+        choice_goal = input("Which Goal amount did you want to add to? [Exit(0)]:\n")
+        if choice_goal == "0":
+        for ind, goal in enumerate(profiles[user_ind]["Goals"]):
+            if choice_goal == goal[0]:
+                goal_ind = ind
+            else:
+                print("That Goal couldn't be found")
+                break
+        amount = input("How much money do you want to add to it?:\n")
+        if 
     # checking allowed and stuff
 
 def view(): # 
@@ -51,3 +63,5 @@ def goal_menu(): #
             break
         else:
             print('That is not an option. Try again...')
+
+# Remeber to make sure file things are int() or str()

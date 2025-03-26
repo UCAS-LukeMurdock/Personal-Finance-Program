@@ -1,3 +1,3 @@
-Name,Password,Entries,Goals,Active
-Luke,word,"[['Income','Date','num','Source'],['Expense','Date','num','Type'],['Expense','2027','10','Food']]","[[100,27],[50,16]]",False
-John,fun,"[['Date','-num','Info'],['Date','num','Info'],['2029','10','Job']]","[[172,39],[75,47]]",False
+Name,Password,Income,Expense,Goals,Active
+Luke,word,"[['Date','num','Source'],['Date','num','Type'],['2027','10','Food']]","[]","[[100,27],[50,16]]",False
+John,fun,"[['Date','num','Info'],['Date','num','Info'],['2029','10','Job']]","[]","[[172,39],[75,47]]",False
