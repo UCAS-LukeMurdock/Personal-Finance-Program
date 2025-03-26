@@ -50,8 +50,10 @@ def sign_in():
             profile = {
                 "Name": sign_up_user_name,
                 "Password": sign_up_password,
-                "Entries": [],
-                "Goals": [],}
+                "Income": [],
+                "Expense": [],
+                "Goals": [],
+                "Active": False,}
             write_file(user_profiles.append(profile))
             print("Created New Profile") #Now they go back and can go log in to that account
 
