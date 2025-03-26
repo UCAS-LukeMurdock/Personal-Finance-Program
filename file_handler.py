@@ -12,6 +12,11 @@ def read_file(): # Turns a file into a list of dictionaries
             dict = {}
             for detail_index, detail in enumerate(row):
                 if detail_index == 2 or detail_index == 4:
+                    # detail = detail[1:-1]
+                    # outer = detail.split("],")
+                    # for ind, inner in enumerate(outer):
+                    #     inner = f"{inner}]"
+                    #     outer[ind] = (eval(inner))
                     detail = eval(detail)
                 dict.update({detail_types[detail_index]:detail})
             dicts.append(dict)
@@ -24,6 +29,8 @@ def write_file(dicts): # Writes the list of dictonary onto the file
         writer.writeheader()
         writer.writerows(dicts)
 
+
+# DELETE????
 def intput(prompt, min = -1, max = -1): # Checks and prompts user to solve errors in integer inputs (Has Range If Needed)
     try:
         response = int(input(prompt).strip())

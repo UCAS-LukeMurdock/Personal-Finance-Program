@@ -19,5 +19,35 @@ Procedure for viewing goals and Progress
     Display their desired goal's information and progress percentage
 """
 
-def goal_menu():
-    choice = intput("Create Goal(1) Add to Goal Progress(2) View Goals(3) Exit(4)", 1,4)
+def create(): # 
+    profiles = read_file()
+    goal = input("What is your Savings Goal?: \n")
+    profiles[user_ind]["Goals"].append((goal,0))
+    write_file()
+
+def add(): # 
+    goal = input("Which Goal amount did you want to add to?:\n")
+    amount = input("How much money do you want to add to it?:\n")
+    # checking allowed and stuff
+
+def view(): # 
+    choice = input("Type Desired Goal [All(0)]: ")
+    if choice == "0":
+        pass
+    elif choice != "0":
+        pass
+    # Finish
+
+def goal_menu(): # 
+    while True:
+        choice = input("\nSavings Goals\nCreate Goal(1) Add to Goal Progress(2) View Goals(3) Exit(4)\n")
+        if choice == 1:
+            create()
+        elif choice == 2:
+            add()
+        elif choice == 3:
+            view()
+        elif choice == 4:
+            break
+        else:
+            print('That is not an option. Try again...')
