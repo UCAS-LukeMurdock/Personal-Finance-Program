@@ -11,7 +11,7 @@ def read_file(): # Turns a file into a list of dictionaries
                 continue
             dict = {}
             for detail_index, detail in enumerate(row):
-                if detail_index == 2 or detail_index == 4:
+                if detail_index == 2 or detail_index == 3 or detail_index == 4:
                     # detail = detail[1:-1]
                     # outer = detail.split("],")
                     # for ind, inner in enumerate(outer):
@@ -24,11 +24,15 @@ def read_file(): # Turns a file into a list of dictionaries
 
 def write_file(dicts): # Writes the list of dictonary onto the file
     with open ("users.csv", "w", newline="") as file:
-        fieldnames = ["Name","Entries","Budget","Goals"]
+        fieldnames = ["Name","Password","Entries","Goals","Active"]
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(dicts)
 
+def find_active(users): # 
+    for ind, user in enumerate(users):
+        if user["Active"] == True:
+            return ind
 
 # DELETE????
 def intput(prompt, min = -1, max = -1): # Checks and prompts user to solve errors in integer inputs (Has Range If Needed)
