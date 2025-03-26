@@ -9,7 +9,7 @@ from currency import convert
 
 
 def menu(): # Introduces the program and then lets the user choose one of the options
-    print("\nWelcome to this Personal Finance Program, where you can track entries, budget, and make savings goals.")
+    
     while True:
         choice = input("\nWhat would you like to do:\n1. Entry track\n2. Budget\n3. Savings goal\n4. Currency Converter\n5. Log out\nChoice: ")
         if choice == '1':
@@ -64,8 +64,5 @@ def sign_in():
             print('That is not an option. Try again...')
             
             
-#We should figure out user index so that we can know which user is signed in etc.
-    # We can either put it through parameters, put it on the file and use a function to find the signed in user, or global it somehow
-# Get rid of Budget on file
-print("\n\nPersonal Finance Program")
+print("\n\n\nWelcome to this Personal Finance Program, where you can track entries, budget, and make savings goals.")
 sign_in()
