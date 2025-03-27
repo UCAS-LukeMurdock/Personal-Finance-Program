@@ -3,15 +3,9 @@ import datetime as dt
 from visual import graph_menu
 from file_handler import read_file, find_active, write_file
 '''
-            If they want to view total income and expenses
-                Input is they want to see data visualization or time period
-                If data visualization
-                    Call displaying graph function
                 If time period
                     INPUT specified time period
                     DISPLAY total income and expenses for time period
-            If they want to exit
-                exit to main menu(break out of loop)
 '''
 
 def entry_tracking():
@@ -27,17 +21,22 @@ def entry_tracking():
             write_file(users)
         elif options == '2':
             expense = input('How much expense are you adding: ')
-            category = input('What is the category of your expense: ')
-            entry = [dt.datetime.now(), expense, category]
-            users[user_ind]['Expense'].append(entry)
-            write_file(users)
+            category = input('What is the category of your expense(housing, food, utilities, transportation, insurance, or other): ')
+            if category == 'housing' or category == 'food' or category == 'utilities' or category == 'transportation' or category == 'insurance' or category == 'other':
+                entry = [str(dt.datetime.now()), expense, category]
+                users[user_ind]['Expense'].append(entry)
+                write_file(users)
+            else:
+                print('That is not an option')
+                continue
+
         elif options == '3':
             choice = input('\nWhat do you want to see?\n1. Data visualization\n2. Time period\n\nChoice: ')
             if choice == '1':
                 graph_menu()
             elif choice == '2':
-                pass
-                #Working on it
+                time_period = input('')
+                #Working
             else:
                 print('That is not an option. Try again...')
 
