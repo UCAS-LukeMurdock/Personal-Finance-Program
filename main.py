@@ -11,7 +11,7 @@ from currency import convert
 def menu(): # Introduces the program and then lets the user choose one of the options
     
     while True:
-        choice = input("\nWhat would you like to do:\n1. Entry track\n2. Budget\n3. Savings goal\n4. Currency Converter\n5. Log out\nChoice: ")
+        choice = input("\nWhat would you like to do:\n1. Entry track\n2. Budget\n3. Savings goal\n4. Currency Converter\n5. Log out\nChoice: ").strip()
         if choice == '1':
             entry_tracking()
         elif choice == '2':
@@ -31,10 +31,10 @@ def sign_in():
     for user in user_profiles:
         user["Active"] = False
     while True:
-        sign_in_choice = input("\nWhat would you like to do:\n1. Log in\n2. Sign up\n3. Exit\nChoice: ")
+        sign_in_choice = input("\nWhat would you like to do:\n1. Log in\n2. Sign up\n3. Quit\nChoice: ").strip()
         if sign_in_choice == '1':
-            user_name = input('Username: ')
-            password = input('Password: ')
+            user_name = input('Username: ').strip()
+            password = input('Password: ').strip()
             for ind, user in enumerate(user_profiles):
                 if user_name == user['Name'] and password == user['Password']:
                     user_profiles[ind]["Active"] = True
@@ -45,8 +45,8 @@ def sign_in():
                     print('Either the username or password is incorrect.')
                     continue
         elif sign_in_choice == '2':
-            sign_up_user_name = input('Username: ')
-            sign_up_password = input('Password: ')
+            sign_up_user_name = input('Username: ').strip()
+            sign_up_password = input('Password: ').strip()
             profile = {
                 "Name": sign_up_user_name,
                 "Password": sign_up_password,
@@ -54,11 +54,12 @@ def sign_in():
                 "Expense": [],
                 "Goals": [],
                 "Active": False,}
-            write_file(user_profiles.append(profile))
-            print("Created New Profile") #Now they go back and can go log in to that account
+            user_profiles.append(profile)
+            write_file(user_profiles)
+            print("\nCreated New Profile") #Now they go back and can go log in to that account
 
         elif sign_in_choice == '3':
-            print('\nThank you for using your Personal Finance Program!\n\n\n')
+            print('\n\nThank you for using your Personal Finance Program!\n\n\n')
             exit()
         else:
             print('That is not an option. Try again...')
@@ -66,3 +67,5 @@ def sign_in():
             
 print("\n\n\nWelcome to this Personal Finance Program, where you can track entries, budget, and make savings goals.")
 sign_in()
+
+# Removal of Profile Feature

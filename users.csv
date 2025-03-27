@@ -1,3 +1,6 @@
 Name,Password,Income,Expense,Goals,Active
-Luke,word,"[['Date','num','Source'],['Date','num','Type'],['2027','10','Food']]","[]","[[100,27],[50,16]]",False
-John,fun,"[['Date','num','Info'],['Date','num','Info'],['2029','10','Job']]","[]","[[172,39],[75,47]]",False
+Luke,word,"[['Date', 'num', 'Source'], ['Date', 'num', 'Type'], ['2027', '10', 'Food']]",[],"[['College', 100, 27], ['Car', 50, 16]]",False
+John,fun,"[['Date', 'num', 'Info'], ['Date', 'num', 'Info'], ['2029', '10', 'Job']]",[],"[['Vacation', 172, 39], ['Video Game', 75, 47]]",False
+Cat,Rock,[],[],"[('Cats', 100.0, 0)]",False
+Cat7,Rock7,[],[],"[('Pizza', 70.0, 0)]",False
+commanderjets,Password123!,"[['2025-03-26 22:51:45.248323', '5', 'Rock']]",[],"[['Destiny 2', 44.0, -7.5], ['Rocks', 100.0, 0]]",True

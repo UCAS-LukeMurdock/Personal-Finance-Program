@@ -1,67 +1,78 @@
 # Luke Murdock, Savings Goals
 from file_handler import read_file, write_file, find_active, intput
-"""
-Procedure for goal menu
-    Find if the user wants to create a goal, add to a goal's progress, view a goal, or exit to main menu
-    Goes to the desired procedure below
-
-Procedure for creating new goal
-    Find what goal they want to reach
-    Create the goal as a list and write to the file
-
-Procedure for adding to goal
-    Find out which goal they want to add to
-    Find how much money they want to add to their progress
-    Add the money to their goal and write to file
-
-Procedure for viewing goals and Progress
-    Find out which goal they want to view or if they want to view all of them
-    Display their desired goal's information and progress percentage
-"""
 
 def create(): # 
     profiles = read_file()
     user_ind = find_active(profiles)
-    goal = input("What is your Savings Goal?: \n")
-    profiles[user_ind]["Goals"].append((goal,0))
+    name = input("What are you saving for?:\n").strip()
+    try:
+        goal = round(float(input("What is your Savings Goal?:\n").strip()),2)
+    except:
+        print("Not a Number")
+        return
+    if goal <= 0:
+        print("Your goal is too low")
+        return
+    print(f"Created Goal!\n{name}: $0/${goal}  0%")
+    profiles[user_ind]["Goals"].append([name,goal,0])
     write_file(profiles)
 
 def add(): # 
     profiles = read_file()
     user_ind = find_active(profiles)
     while True:
-        choice_goal = input("Which Goal amount did you want to add to? [Exit(0)]:\n")
-        if choice_goal == "0":
+        choice = input("Which Goal did you want to change? [Exit(0)]:\n").strip()
+        if choice == "0":
+            break
         for ind, goal in enumerate(profiles[user_ind]["Goals"]):
-            if choice_goal == goal[0]:
+            if choice.upper() == goal[0].upper():
                 goal_ind = ind
             else:
                 print("That Goal couldn't be found")
-                break
-        amount = input("How much money do you want to add to it?:\n")
-        if 
-    # checking allowed and stuff
+                continue
+        try:
+            amount = float(input("How much Money do you want to Add to it? [Use -# for Withdrawing from the Goal]:\n").strip())
+        except:
+            print("Not a Number")
+            continue
+        amount = round(amount,2)
+        profiles[user_ind]["Goals"][goal_ind][2] = float(profiles[user_ind]["Goals"][goal_ind][2]) + amount
+        if profiles[user_ind]["Goals"][goal_ind][2] >= profiles[user_ind]["Goals"][goal_ind][1]:
+            print(f"You Accomplished this Goal!\n{profiles[user_ind]["Goals"][goal_ind][0]}: ${profiles[user_ind]["Goals"][goal_ind][2]}/${profiles[user_ind]["Goals"][goal_ind][1]}  {round(float(profiles[user_ind]["Goals"][goal_ind][2])/float(profiles[user_ind]["Goals"][goal_ind][1])*100,2)}%")
+            profiles[user_ind]["Goals"].pop(goal_ind)
+        write_file(profiles)
+        break
 
 def view(): # 
-    choice = input("Type Desired Goal [All(0)]: ")
-    if choice == "0":
-        pass
-    elif choice != "0":
-        pass
-    # Finish
+    profiles = read_file()
+    user_ind = find_active(profiles)
+    found = False
+    choice = input("Type Desired Goal [All(0)]: ").strip()
+    for goal_ind, goal in enumerate(profiles[user_ind]["Goals"]):
+        if choice.upper() == goal[0].upper() and choice != '0':
+            print(f"\n{profiles[user_ind]["Goals"][goal_ind][0]}: ${profiles[user_ind]["Goals"][goal_ind][2]}/${profiles[user_ind]["Goals"][goal_ind][1]}  {round(float(profiles[user_ind]["Goals"][goal_ind][2])/float(profiles[user_ind]["Goals"][goal_ind][1])*100,2)}%")
+            found = True
+            break
+        elif choice == '0':
+            found = True
+            print(f"\n{profiles[user_ind]["Goals"][goal_ind][0]}: ${profiles[user_ind]["Goals"][goal_ind][2]}/${profiles[user_ind]["Goals"][goal_ind][1]}  {round(float(profiles[user_ind]["Goals"][goal_ind][2])/float(profiles[user_ind]["Goals"][goal_ind][1])*100,2)}%")
+    if found == False or profiles[user_ind]["Goals"] == []:
+        print("No Goals Found")
 
 def goal_menu(): # 
     while True:
-        choice = input("\nSavings Goals\nCreate Goal(1) Add to Goal Progress(2) View Goals(3) Exit(4)\n")
-        if choice == 1:
+        choice = input("\nSavings Goals\nCreate Goal(1) Change Goal Progress(2) View Goals(3) Exit(4)\n").strip()
+        if choice == "1":
             create()
-        elif choice == 2:
+        elif choice == "2":
             add()
-        elif choice == 3:
+        elif choice == "3":
             view()
-        elif choice == 4:
+        elif choice == "4":
             break
         else:
             print('That is not an option. Try again...')
 
-# Remeber to make sure file things are int() or str()
+# Fix Percentage and View All and then (Did) Check Finishing
+
+# Remeber to make sure file things are float() or int() or str()
