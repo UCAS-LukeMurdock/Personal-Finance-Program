@@ -22,7 +22,7 @@ def entry_tracking():
         if options == '1':
             income = input('How much income are you adding: ')
             source = input('What is the source of your income: ')
-            entry = [dt.datetime.now(), income, source]
+            entry = [str(dt.datetime.now()), income, source]
             users[user_ind]['Income'].append(entry)
             write_file(users)
         elif options == '2':
@@ -36,6 +36,7 @@ def entry_tracking():
             if choice == '1':
                 graph_menu()
             elif choice == '2':
+                pass
                 #Working on it
             else:
                 print('That is not an option. Try again...')
