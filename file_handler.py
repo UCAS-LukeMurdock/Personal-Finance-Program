@@ -45,3 +45,5 @@ def intput(prompt, min = -1, max = -1): # Checks and prompts user to solve error
         print(f"Not In Range: {min}-{max}")
         response = intput(prompt,min,max)
     return response
+
+print(read_file())
