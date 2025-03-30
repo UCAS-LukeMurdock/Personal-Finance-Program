@@ -1,29 +1,39 @@
 # Luke Murdock, Currency Converter
-"""
-Procedure for currency converter:
-    Find what currency the user is converting from
-    Find how much of that currency
-    Find what currency the user is converting to
-    Turn their starting currency into USD using the currency's converter amount
-    Turn this USD amount knto their desired end currency by using its converter amount
-    Display their final amount in the end currency
-"""
 
-def convert():
+def convert(): # 
+    currencies = [["USD",1],["EUR",0.92782],["JPY",150.38],["GBP",0.77477],["AUD",1.58555],["CAD",1.427],["CHF",0.88371],["CNH",0.88371],["HKD",7.77528],["NZD",1.74173]]
+    
     while True:
-        start_currency = input("What currency are you converting from?: US(1) Euro(2) Yen(3) (4) (5) (6) (7) (8) (9) (10) \n")
-        amount = input("How much money in that currency?:\n")
-        end_currency = input("What currency are you converting to?:\n")
+        start_currency = input("\nWhat currency are you converting from? [Exit(0) Disclaimer(1)]:\nUS Dollar(USD) Euro(EUR) Japanese Yen(JPY) British Pound(GBP) Austrailian Dollar(AUD) Canadian Dollar(CAD) Swiss Franc(CHF) Chinese Renminbi(CNH) Hong Kong Dollar(HKD) New Zealand Dollar(NZD)\n").strip().upper()
+        if start_currency == "0":
+            break
+        if start_currency == "1":
+            print("This Currency Converter is not fully accurate because currency values are constantly changing.")
+            continue
+        try:
+            amount = round(float(input("How much money in that currency?:\n").strip()),2)
+            start_amount = amount
+        except:
+            print("Invalid Input Type (Input a Number)")
+            continue
+        end_currency = input("What currency are you converting to?:\nUS Dollar(USD) Euro(EUR) Japanese Yen(JPY) British Pound(GBP) Austrailian Dollar(AUD) Canadian Dollar(CAD) Swiss Franc(CHF) Chinese Renminbi(CNH) Hong Kong Dollar(HKD) New Zealand Dollar(NZD)\n").strip().upper()
+
+        def convert_currency(user_currency, to_us):
+            nonlocal amount
+            for currency in currencies:
+                if user_currency == currency[0]:
+                    if to_us == True:
+                        amount = amount / currency[1]
+                    if to_us == False:
+                        amount = round(amount * currency[1], 2)
+                    return True
+            return False
         
-"""
-US dollar (USD) 1
-Euro (EUR) 0.92782
-Japanese yen (JPY) 150.38
-The pound sterling (GBP) 0.77477
-Australian dollar (AUD) 1.58555
-Canadian dollar (CAD) 1.427
-Swiss franc (CHF) 0.88371
-Chinese renminbi (CNH) 7.26052
-Hong Kong dollar (HKD) 7.77528
-New Zealand dollar (NZD) 1.74173
-"""
+        if convert_currency(start_currency, True) == False:
+            print("Invalid Input (Insert the currency's abbreviation)")
+            continue
+        if convert_currency(end_currency, False) == False:
+            print("Invalid Input (Insert the currency's abbreviation)")
+            continue
+
+        print(f"{start_amount} in {start_currency} is {amount} in {end_currency}")
