@@ -1,24 +1,26 @@
 #Luke Murdock, Calculator
 
-def calc():
+def calc(): # Calculates and Displays two inputted numbers using an inputted operation
     operation = ""
     error = False
+    print("\nThis is a Calculator that lets you choose two numbers and the operation that is used on them.")
     while True:
-        try:
-            num1 = float(input("First number?:"))
-        except:
-            error = True
-            print("Not an Integer")
+        num1 = input('First number? (Type "Exit" to Exit):').lower()
+        if num1 == "exit":
             break
+        try:
+            num1 = float(num1)
+        except:
+            print("Not a Number")
+            continue
 
         operation = input("What operation? (+, -, *, /, ** [exponents], // [divison without remainder], % [division's remainder]):")
 
         try:
             num2 = float(input("Second number?:"))
         except:
-            error = True
-            print("Not an Integer")
-            break
+            print("Not a Number")
+            continue
             
         if (operation == "+") :
             answer = num1 + num2
@@ -29,9 +31,8 @@ def calc():
         
         elif (operation == "/") :
             if num2 == 0:
-                error = True
                 print("Divide by 0 Error")
-                break
+                continue
             else:
                 answer = num1 / num2
 
@@ -43,7 +44,5 @@ def calc():
             answer = num1 % num2
         else:
             answer = "error"
-        break
 
-    if error == False:
         print(num1, operation, num2, "=", answer)

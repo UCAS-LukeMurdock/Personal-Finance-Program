@@ -1,6 +1,6 @@
 # Luke Murdock, Currency Converter
 
-def convert(): # 
+def convert(): # Converts and displays inputted amount of an inputted currency into another inputted currency
     currencies = [["USD",1],["EUR",0.92782],["JPY",150.38],["GBP",0.77477],["AUD",1.58555],["CAD",1.427],["CHF",0.88371],["CNH",0.88371],["HKD",7.77528],["NZD",1.74173]]
     
     while True:
@@ -18,7 +18,7 @@ def convert(): #
             continue
         end_currency = input("What currency are you converting to?:\nUS Dollar(USD) Euro(EUR) Japanese Yen(JPY) British Pound(GBP) Austrailian Dollar(AUD) Canadian Dollar(CAD) Swiss Franc(CHF) Chinese Renminbi(CNH) Hong Kong Dollar(HKD) New Zealand Dollar(NZD)\n").strip().upper()
 
-        def convert_currency(user_currency, to_us):
+        def convert_currency(user_currency, to_us): # Finds inputted currency and then converts the amount into either USD or the end currency
             nonlocal amount
             for currency in currencies:
                 if user_currency == currency[0]:

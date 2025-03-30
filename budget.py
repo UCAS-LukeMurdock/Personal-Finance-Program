@@ -1,7 +1,7 @@
 # Alishya Xavier, Budgeting
 from file_handler import read_file, find_active
 
-def budget():
+def budget(): # 
     spent_housing = 0
     spent_food = 0
     spent_utilities = 0
