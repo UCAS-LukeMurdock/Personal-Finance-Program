@@ -13,51 +13,58 @@ import matplotlib.pyplot as plt
 def dict_to_list(data):
 
     #dictionary for account data
-    accounts = {
-        'name': [],
-        'income': [],
-        'expense': [],
-        'goals': []
+    account = {
+        'name': '',
+        'i_date': [],
+        'i_amt': [],
+        'i_name': [],
+        'e_date': [],
+        'e_amt': [],
+        'e_name': [],
     }
 
+    for index, value in enumerate(data['Active'].values()):
+        print(value)
+        if value == True: #use the signed in profile
+            print(data['Name'][index])
+            account['name'] = data['Name'][index]
 
-    #add name
-    for data_index in data['Name'].values():
-        accounts['name'].append(data_index)
+            #add income
+            #variable to convert the list string into a list
+            information = data['Income'][index]
+            information = eval(information)
+            for income in information:
+                account['i_date'].append(income[0])
+                account['i_amt'].append(income[1])
+                account['i_name'].append(income[2])
 
-    #add income
-    for index, data_index in enumerate(data['Income'].values()):
-        accounts['income'].append(eval(data_index))
+
+            #add expense
+            #variable to convert the list string into a list
+            information = data['Expense'][index]
+            information = eval(information)
+            for income in information:
+                print(income)
+                account['e_date'].append(income[0])
+                account['e_amt'].append(income[1])
+                account['e_name'].append(income[2])
+
+
             
-        for sub_index in eval(data_index):
-            accounts['income'][index].append(sub_index)
-
-    #add expense
-    for data_index in data['Expense'].values():
-        accounts['expense']
 
     
-    #add goals
-    for data_index in data['Goals'].values():
-        accounts['goals'].append(eval(data_index))
-
-    return accounts
+    return account
 
 
 
 #main function to choose what to do
-def main():
+def graph_menu():
     #variable to save money data
     df = pd.read_csv('users.csv').to_dict()
     account_data = dict_to_list(df)
-    for i in range(len(account_data['name'])):
-        print(account_data['name'][i])
-        print(account_data['income'][i])
-        print(account_data['expense'][i])
-        print(account_data['goals'][i])
-        print('\n\n')
+    print(account_data)
 
-
-    plt.pie([1,2,3,4,5], labels=account_data['name'])
+    plt.pie([1,2,3,4,5])
     plt.show()
-main()
+
+graph_menu()
