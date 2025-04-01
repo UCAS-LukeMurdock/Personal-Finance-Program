@@ -46,7 +46,8 @@ def entry_tracking():
                     total_income, total_expenses = calculate_totals(users[user_ind], start_date, end_date)
                     print(f"Total Income: ${total_income:.2f}")
                     print(f"Total Expenses: ${total_expenses:.2f}")
-                    #Subtract income over expenses to see how much changed
+                    change = total_income - total_expenses
+                    print(f'Net total: {change}')
                 except ValueError:
                     print("Invalid date format! Please use YYYY-MM-DD.")
                     

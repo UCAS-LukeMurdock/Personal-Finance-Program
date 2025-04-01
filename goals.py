@@ -1,5 +1,5 @@
 # Luke Murdock, Savings Goals
-from file_handler import read_file, write_file, find_active, intput
+from file_handler import read_file, write_file, find_active
 
 def create(): # Lets the user create a new goal with a name and a goal amount
     profiles = read_file()
