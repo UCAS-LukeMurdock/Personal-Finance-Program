@@ -11,7 +11,7 @@ from currency import convert
 def menu(): # Introduces the program and then lets the user choose one of the options
     
     while True:
-        choice = input("\nWhat would you like to do:\n1. Track entries\n2. Budget\n3. Savings goal\n4. Currency Converter\n5. Log out\nChoice: ").strip()
+        choice = input("\nWhat would you like to do:\n1. Track entries\n2. Budget\n3. Savings goals\n4. Currency Converter\n5. Log out\nChoice: ").strip()
         if choice == '1':
             entry_tracking()
             pass

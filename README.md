@@ -10,7 +10,7 @@ Not used for this class
 
 ## Execution and Usage
 ---
-Paragraph describing how to user the project
+To use this program you will have to run the main file's code with having the other files connected to it. The program will play in the terminal and starts with a concise description of the program. It then lets you either sign in and use the program if you already have an account, sign up if you want to create an account or quit if you want to end the program. You then input a number that corresponds to the option you choose. If you input it incorrectly, you will recieve an error message and then you can reinsert your input.It will then ask if you want to track money entries, budget, manage savings goals, convert one currenct into another, or log out. By selecting the option you choose using the method mentioned above, it will bring you to that tool and you will be able to follow its instructions to use it. After you are finished with that option you will be brought to the menu option again to decide what else you want to do. When you are done with the program you can log out and then quit the program. The program uses a file to keep track of entries and goals so you can come back to the project and view or change them later.
 ![image](relative path to the image NOTE: Image has to be saved in the repoitory REMINDER: Show what the project looks like when running)  
 
 ## Used Technologies
