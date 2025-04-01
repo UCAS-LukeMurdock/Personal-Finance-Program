@@ -15,10 +15,10 @@ To use this program you will have to run the main file's code with having the ot
 
 ## Used Technologies
 ---
-+ First library in the repository
++ matplotlib
 `pip install matplotlib`
-+ Second library in the repository
-`pip install code for the library`
++ pandas
+`pip install pandas`
 + Third library in the repository
 `pip install code for the library`  
 
