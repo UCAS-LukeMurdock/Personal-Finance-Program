@@ -16,7 +16,7 @@ def entry_tracking():
         
         if options == '1':
             #Adding an income entry
-            income = input('How much income are you adding: ')
+            income = input('How much income do you want your entry to have: ')
             source = input('What is the source of your income: ')
             date = dt.datetime.now().strftime("%Y-%m-%d") #Gets current date
             entry = [date, income, source]#Makes an income entry list
@@ -26,7 +26,7 @@ def entry_tracking():
         
         elif options == '2':
             #Adding an expense entry
-            expense = input('How much expense are you adding: ')
+            expense = input('What is your entry\'s expense: ')
             category = input('What is the category of your expense(housing, food, utilities, transportation, insurance, or other): ')
             if category in ['housing','food','utilities','transportation','insurance','other']:
                 date = dt.datetime.now().strftime("%Y-%m-%d")
@@ -58,7 +58,7 @@ def entry_tracking():
                     print(f"Total Income: ${total_income:.2f}")
                     print(f"Total Expenses: ${total_expenses:.2f}")
                     change = total_income - total_expenses
-                    print(f'Net total: {change}')
+                    print(f'Net total: ${change}')
                 except ValueError:
                     print("Invalid date format! Please use YYYY-MM-DD.")
                     
