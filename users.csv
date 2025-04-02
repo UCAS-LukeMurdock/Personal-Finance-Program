@@ -1,3 +1,3 @@
 Name,Password,Income,Expense,Goals,Active
 commanderjets,Password123!,[],[],"[['Destiny 2', 44.0, -7.5], ['Rocks', 100.0, 0]]",False
-luke,murdock,[],[],[],True
+luke,murdock,"[['2025-04-01', '30', 'banana'], ['2025-04-01', '12', '3']]",[],[],True

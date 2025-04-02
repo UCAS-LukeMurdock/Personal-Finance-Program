@@ -79,3 +79,5 @@ def calculate_totals(user_data, start_date, end_date):
             total_expenses += float(entry[1])
 
     return total_income, total_expenses
+
+entry_tracking()
