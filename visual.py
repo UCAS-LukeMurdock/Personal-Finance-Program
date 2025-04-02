@@ -19,6 +19,18 @@ def is_int(value):
     return int(value)
 
 
+#function to add all y values with the same x value
+def add_values(x, y):
+    x = x.sort()
+    #variables
+    new_x = []
+    new_y = []
+    next_x = 0
+    next_y = 0
+
+
+
+
 #function to take the user info (dictionaries of dictionaries), and make it into dictionaries of lists
 def dict_to_list(data):
 
@@ -42,13 +54,14 @@ def dict_to_list(data):
             information = data['Income'][index]
             information = eval(information)
             for income in information:
-                account['i_date'].append(income[0])
+                account['i_date'].append(income[0].split('-'))
                 account['i_amt'].append(income[1])
                 account['i_name'].append(income[2])
             
-            #change dates to more readable things for computer
-            for i in account['i_date']:
-                print(i)
+            #change dates to more readable things for computer, make dates a single number
+            for i in range(len(account['i_date'])):
+                #subtract 2025 from year to make it simpler
+                account['i_date'][i] = (int(account['i_date'][i][0])-2025)*365 + int(account['i_date'][i][1])*30 + int(account['i_date'][i][2])
 
 
             #add expense
@@ -60,12 +73,18 @@ def dict_to_list(data):
                 account['e_amt'].append(income[1])
                 account['e_name'].append(income[2])
 
+            #change dates to more readable things for computer, make dates a single number
+            for i in range(len(account['e_date'])):
+                #subtract 2025 from year to make it simpler
+                account['e_date'][i] = (int(account['e_date'][i][0])-2025)*365 + int(account['e_date'][i][1])*30 + int(account['e_date'][i][2])
+
     return account
 
 
 
 #main function to choose what to do
 def graph_menu():
+    print([1,2,3,52,3,4])
     #variable to save money data
     df = pd.read_csv('users.csv').to_dict()
     account_data = dict_to_list(df)
@@ -97,6 +116,10 @@ Your answer here:
     elif user_input == 3:
             #make sure there is data in it
             if len(account_data['e_amt']) > 0 or len(account_data['i_amt']) > 0:
+                #variables for points
+                x_points = []
+                y_points = []
+
                 fig, ax = plt.subplots()
                 ax.plot(account_data['i_date'], account_data['i_amt'])
                 ax.plot(account_data['e_amt'])
