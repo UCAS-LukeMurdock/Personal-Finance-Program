@@ -28,3 +28,10 @@ def find_active(users): # Finds active user index
     for ind, user in enumerate(users):
         if user["Active"] == True:
             return ind
+
+def remove_user():
+    users = read_file()
+    user_ind = find_active(users)
+    print(f"\nThe User {users[user_ind]['Name']} was Removed\nYou have logged out")
+    users.pop(user_ind)
+    write_file(users)
