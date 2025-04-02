@@ -68,7 +68,7 @@ def view(): # Lets the user see either a specific goal or all of their goals
 
 def goal_menu(): # Lets the user choose what to do with their goals
     while True:
-        choice = input("\nSavings Goals\nCreate Goal(1) Change Goal Progress(2) View Goals(3) Exit(4)\nChoice: ").strip()
+        choice = input("\nSavings Goals\nCreate Goal(1) Change Goal Progress(2) View Goals(3) Exit(4)\n\nChoice: ").strip()
         if choice == "1":
             create()
         elif choice == "2":
