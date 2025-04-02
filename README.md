@@ -18,6 +18,8 @@ To use this program you will have to run the main file's code with having the ot
 ---
 + matplotlib
 `pip install matplotlib`
++ numpy
+`pip install numpy`
 + pandas
 `pip install pandas`
 + Third library in the repository
