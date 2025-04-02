@@ -70,5 +70,3 @@ def sign_in():
             
 print("\n\n\nWelcome to this Personal Finance Program, where you can track entries, budget, and make savings goals.")
 sign_in()
-
-# Removal of Profile Feature

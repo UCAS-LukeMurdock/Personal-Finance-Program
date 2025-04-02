@@ -2,7 +2,8 @@
 
 ## Project Description
 ---
-Paragraph describing the purpose of your project and what it does.  
+The purpose of the Personal Finance Tracker is to help users manage their income, expenses, and savings goals. This project lets the user make an account and saves all of their personal data that was used to manage their personal finances into a seperate file. Then after being logged in it can manage your savings goals by creating new ones, adding money into the savings, or seeing the progress made on that goal. It can also budget by making limits for the users expenses and lastly it can manage the users income and expenses by adding entries or visualizing the users data with a pie chart or a line graph. All of these things were made to make personal finances easy to manage.
+ 
 
 ## Installation
 ---
