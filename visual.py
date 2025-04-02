@@ -153,4 +153,3 @@ Your answer here:
     #show graph
     plt.show()
 
-graph_menu()

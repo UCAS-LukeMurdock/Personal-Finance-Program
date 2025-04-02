@@ -16,12 +16,12 @@ def budget():
 
     try:
         #Gathers the users input for spending limits in the categories
-        housing = int(input('\nHow much do you want to spend on housing:\n'))
-        food = int(input('\nHow much do you want to spend on food:\n'))
-        utilities = int(input('\nHow much do you want to spend on utilities:\n'))
-        transportation = int(input('\nHow much do you want to spend on transportation:\n'))
-        insurance = int(input('\nHow much do you want to spend on insurance:\n'))
-        other = int(input('\nHow much do you want to spend on other things:\n'))
+        housing = int(input('\nHow much do you want your limit to be on housing:\n'))
+        food = int(input('\nHow much do you want your limit to be on food:\n'))
+        utilities = int(input('\nHow much do you want your limit to be on utilities:\n'))
+        transportation = int(input('\nHow much do you want your limit to be on transportation:\n'))
+        insurance = int(input('\nHow much do you want your limit to be on insurance:\n'))
+        other = int(input('\nHow much do you want your limit to be on other things:\n'))
     #Error Handling
     except:
         print("Invalid Input Type (Input in an Integer)")
