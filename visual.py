@@ -19,6 +19,16 @@ def largest_value(lst):
     return value
 
 
+#function to find the smallest value in a list
+def smallest_value(lst):
+    value = largest_value(lst)
+    for i in lst:
+        if i <= value:
+            value = i
+
+    return value
+
+
 #function to test if something is an integer
 def is_int(value):
     try:
@@ -33,7 +43,7 @@ def add_values(x, y):
     #variables
     new_x = []
     new_y = []
-    next_x = 0
+    next_x = 100
     next_y = 0
 
     #loop through all numbers and make a list
@@ -42,7 +52,7 @@ def add_values(x, y):
             new_x.append(next_x)
             next_y = 0
             for index, value in enumerate(x):
-                if value == new_x:
+                if value == next_x:
                     next_y += y[index]
 
             new_y.append(next_y)
@@ -80,7 +90,7 @@ def dict_to_list(data):
             information = eval(information)
             for income in information:
                 account['i_date'].append(income[0].split('-'))
-                account['i_amt'].append(income[1])
+                account['i_amt'].append(int(income[1]))
                 account['i_name'].append(income[2])
             
             #change dates to more readable things for computer, make dates a single number
@@ -93,10 +103,10 @@ def dict_to_list(data):
             #variable to convert the list string into a list
             information = data['Expense'][index]
             information = eval(information)
-            for income in information:
-                account['e_date'].append(income[0])
-                account['e_amt'].append(income[1])
-                account['e_name'].append(income[2])
+            for expense in information:
+                account['e_date'].append(expense[0])
+                account['e_amt'].append(int(expense[1]))
+                account['e_name'].append(expense[2])
 
             #change dates to more readable things for computer, make dates a single number
             for i in range(len(account['e_date'])):
@@ -140,17 +150,28 @@ Your answer here:
     elif user_input == 3:
             #make sure there is data in it
             if len(account_data['e_amt']) > 0 or len(account_data['i_amt']) > 0:
-                #variables for points
-                x_points, y_points = add_values(account_data['i_date'], account_data['i_amt'])
+                #variables for incomepoints
+                i_x_points, y_points = add_values(account_data['i_date'], account_data['i_amt'])
+
+                #assign graph bounds and margins (bit of space between the graph and edges)
+                bounds = [smallest_value(i_x_points), largest_value(i_x_points), smallest_value(y_points), largest_value(y_points)]
+                margins = [(bounds[1]-bounds[0])//20,(bounds[3]-bounds[2])//20]
+
+                #variables for expense points
+                i_x_points, y_points = add_values(account_data['i_date'], account_data['i_amt'])
+
+                #assign graph bounds and margins (bit of space between the graph and edges)
+                bounds = [smallest_value(i_x_points), largest_value(i_x_points), smallest_value(y_points), largest_value(y_points)]
+                margins = [(bounds[1]-bounds[0])//20,(bounds[3]-bounds[2])//20]
+
+                
 
                 fig, ax = plt.subplots()
-                ax.plot(x_points, y_points)
-                ax.set(xticks=[1,2,3,4,5,6], yticks=np.arange(0,30))
+                ax.plot(i_x_points, y_points)
+                ax.set(xlim= (bounds[0], bounds[1]+margins[0]), ylim= (bounds[2]-margins[1], bounds[3]+margins[1]), xticks=np.arange(bounds[0], bounds[1]), yticks=np.arange(bounds[2], bounds[3]))
             else:
                 print('\nnot enough data\n')
 
 
     #show graph
     plt.show()
-
-    
