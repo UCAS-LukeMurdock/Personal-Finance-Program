@@ -9,6 +9,15 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
+#function to find the largest value in a list
+def largest_value(lst):
+    value = 0
+    for i in lst:
+        if i >= value:
+            value = i
+
+    return value
+
 
 #function to test if something is an integer
 def is_int(value):
@@ -21,12 +30,28 @@ def is_int(value):
 
 #function to add all y values with the same x value
 def add_values(x, y):
-    x = x.sort()
     #variables
     new_x = []
     new_y = []
     next_x = 0
     next_y = 0
+
+    #loop through all numbers and make a list
+    while next_x <= largest_value(x):
+        if next_x in x:
+            new_x.append(next_x)
+            next_y = 0
+            for index, value in enumerate(x):
+                if value == new_x:
+                    next_y += y[index]
+
+            new_y.append(next_y)
+            
+
+        next_x += 1
+
+    return new_x, new_y
+
 
 
 
@@ -84,7 +109,6 @@ def dict_to_list(data):
 
 #main function to choose what to do
 def graph_menu():
-    print([1,2,3,52,3,4])
     #variable to save money data
     df = pd.read_csv('users.csv').to_dict()
     account_data = dict_to_list(df)
@@ -117,12 +141,10 @@ Your answer here:
             #make sure there is data in it
             if len(account_data['e_amt']) > 0 or len(account_data['i_amt']) > 0:
                 #variables for points
-                x_points = []
-                y_points = []
+                x_points, y_points = add_values(account_data['i_date'], account_data['i_amt'])
 
                 fig, ax = plt.subplots()
-                ax.plot(account_data['i_date'], account_data['i_amt'])
-                ax.plot(account_data['e_amt'])
+                ax.plot(x_points, y_points)
                 ax.set(xticks=[1,2,3,4,5,6], yticks=np.arange(0,30))
             else:
                 print('\nnot enough data\n')
