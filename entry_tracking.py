@@ -40,7 +40,7 @@ def entry_tracking():
 
         elif options == '3':
             #Viewing the total income and expenses
-            choice = input('\nWhat do you want to see?\n1. Data visualization\n2. Time period\n\nChoice: ')
+            choice = input('\nWhat do you want to see?\n1. Data visualization\n2. Time period\n3. Display All Entries\n\nChoice: ')
             
             if choice == '1':
                 #Calling the data visualization function
@@ -61,7 +61,8 @@ def entry_tracking():
                     print(f'Net total: {change}')
                 except ValueError:
                     print("Invalid date format! Please use YYYY-MM-DD.")
-                    
+            elif choice == '3':
+                pass # LUKE create this
             else:
                 print('That is not an option. Try again...')
 
