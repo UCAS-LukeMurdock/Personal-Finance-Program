@@ -34,17 +34,17 @@ def budget():
     #Iterates over the active user's expenses to calculate the total spending in each category
     for expense in users[user_ind]['Expense']:
         if expense[2] == 'housing':
-            spent_housing += expense[1]
+            spent_housing += int(expense[1]) 
         elif expense[2] == 'food':
-            spent_food += expense[1]
+            spent_food += int(expense[1])
         elif expense[2] == 'utilities':
-            spent_utilities += expense[1]
+            spent_utilities += int(expense[1])
         elif expense[2] == 'transportation':
-            spent_transportation += expense[1]
+            spent_transportation += int(expense[1])
         elif expense[2] == 'insurance':
-            spent_insurance += expense[1]
+            spent_insurance += int(expense[1])
         elif expense[2] == 'other':
-            spent_other += expense[1]
+            spent_other += int(expense[1])
 
     categories = [[spent_housing, housing, "housing"], [spent_food, food, "food"], [spent_utilities, utilities, "utilities",], [spent_transportation, transportation, "transportation",], [spent_insurance, insurance, "insurance",], [spent_other, other, "other"]]
 

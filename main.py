@@ -58,7 +58,15 @@ def sign_in():
                 continue
         elif sign_in_choice == '2':
             sign_up_user_name = input('Username: ').strip()
+            check = False
+            for user in user_profiles:
+                if sign_up_user_name == user['Name']:
+                    print('\nThat username has been already taken.\n')
+                    check = True
+            if check == True:
+                continue       
             sign_up_password = input('Password: ').strip()
+            
             profile = {
                 "Name": sign_up_user_name,
                 "Password": sign_up_password,
