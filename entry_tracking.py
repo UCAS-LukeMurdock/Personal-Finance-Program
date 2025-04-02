@@ -87,7 +87,7 @@ def calculate_totals(user_data, start_date, end_date):
     for entry in user_data['Expense']:
         entry_date = dt.datetime.strptime(entry[0], "%Y-%m-%d")
         if start_date <= entry_date <= end_date:
-            total_expenses += float(entry[1])
+            total_expense += float(entry[1])
 
-    return total_income, total_expenses
+    return total_income, total_expense
 
