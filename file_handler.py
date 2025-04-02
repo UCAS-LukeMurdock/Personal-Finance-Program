@@ -12,11 +12,6 @@ def read_file(): # Turns a file into a list of dictionaries
             dict = {}
             for detail_index, detail in enumerate(row):
                 if detail_index == 2 or detail_index == 3 or detail_index == 4 or detail_index == 5:
-                    # detail = detail[1:-1]
-                    # outer = detail.split("],")
-                    # for ind, inner in enumerate(outer):
-                    #     inner = f"{inner}]"
-                    #     outer[ind] = (eval(inner))
                     detail = eval(detail)
                 dict.update({detail_types[detail_index]:detail})
             dicts.append(dict)
@@ -29,21 +24,14 @@ def write_file(dicts): # Writes the list of dictonary onto the file
         writer.writeheader()
         writer.writerows(dicts)
 
-def find_active(users): # 
+def find_active(users): # Finds active user index
     for ind, user in enumerate(users):
         if user["Active"] == True:
             return ind
 
-# DELETE????
-def intput(prompt, min = -1, max = -1): # Checks and prompts user to solve errors in integer inputs (Has Range If Needed)
-    try:
-        response = int(input(prompt).strip())
-    except:
-        print("Not An Integer")
-        response = intput(prompt,min,max)
-    if (min != -1 or max != -1) and (response < min or response > max): # If either min or max aren't -1 and the input is out of range then the user has to reinput
-        print(f"Not In Range: {min}-{max}")
-        response = intput(prompt,min,max)
-    return response
-
-print(read_file())
+def remove_user():
+    users = read_file()
+    user_ind = find_active(users)
+    print(f"\nThe User {users[user_ind]['Name']} was Removed\nYou have logged out")
+    users.pop(user_ind)
+    write_file(users)

@@ -1,7 +1,7 @@
 # Personal Finance Project - Luke Murdock, Alishya Xavier, Alec George
 # Alishya Xavier, Main File
 
-from file_handler import read_file, write_file
+from file_handler import read_file, write_file, remove_user
 from entry_tracking import entry_tracking
 from budget import budget
 from goals import goal_menu
@@ -9,9 +9,9 @@ from currency import convert
 
 
 def menu(): # Introduces the program and then lets the user choose one of the options
-    
+     
     while True:
-        choice = input("\nWhat would you like to do:\n1. Track entries\n2. Budget\n3. Savings goal\n4. Currency Converter\n5. Log out\nChoice: ").strip()
+        choice = input("\nWhat would you like to do:\n1. Track entries\n2. Budget\n3. Savings goals\n4. Currency Converter\n5. Remove user\n6. Log out\nChoice: ").strip()
         if choice == '1':
             entry_tracking()
             pass
@@ -22,10 +22,15 @@ def menu(): # Introduces the program and then lets the user choose one of the op
         elif choice == '4':
             convert()
         elif choice == '5':
+            confirm = input(f"\nAre you sure you want to remove your user?: No(1) Yes(2)\nChoice: ").strip()
+            if confirm == '2':
+                remove_user()
+                break
+        elif choice == '6':
             print("You have logged out")
-            break     
+            break
         else:
-            print("That is not an option. Please try again...")
+            print("That is not an option. Please try again...  (Please type the corresponding number)")
 
 def sign_in():
     user_profiles = read_file()
@@ -44,8 +49,9 @@ def sign_in():
                     print('\nYou have logged in!')
                     found = True
                     menu()
+                    user_profiles = read_file()
             if found == False:
-                print('\nEither the username or password is incorrect.')
+                print('\nUsername or password couldn\'t be found')
                 continue
         elif sign_in_choice == '2':
             sign_up_user_name = input('Username: ').strip()
@@ -65,10 +71,8 @@ def sign_in():
             print('\n\nThank you for using your Personal Finance Program!\n\n\n')
             exit()
         else:
-            print('That is not an option. Try again...')
+            print('That is not an option. Try again...  (Please type the corresponding number)')
             
             
 print("\n\n\nWelcome to this Personal Finance Program, where you can track entries, budget, and make savings goals.")
 sign_in()
-
-# Removal of Profile Feature
