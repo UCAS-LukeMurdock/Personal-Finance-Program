@@ -2,10 +2,9 @@
 
 def calc(): # Calculates and Displays two inputted numbers using an inputted operation
     operation = ""
-    error = False
     print("\nThis is a Calculator that lets you choose two numbers and the operation that is used on them.")
     while True:
-        num1 = input('First number? (Type "Exit" to Exit):').lower()
+        num1 = input('\nFirst number? (Type "Exit" to Exit): ').lower()
         if num1 == "exit":
             break
         try:
@@ -14,14 +13,15 @@ def calc(): # Calculates and Displays two inputted numbers using an inputted ope
             print("Not a Number")
             continue
 
-        operation = input("What operation? (+, -, *, /, ** [exponents], // [divison without remainder], % [division's remainder]):")
+        operation = input("What operation? (+, -, *, /, ** [exponents], // [divison without remainder], % [division's remainder]): ")
 
         try:
-            num2 = float(input("Second number?:"))
+            num2 = float(input("Second number?: "))
         except:
             print("Not a Number")
             continue
-            
+        
+        # Calculates
         if (operation == "+") :
             answer = num1 + num2
         elif (operation == "-") :

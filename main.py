@@ -6,12 +6,13 @@ from entry_tracking import entry_tracking
 from budget import budget
 from goals import goal_menu
 from currency import convert
+from calculator import calc
 
 
 def menu(): # Introduces the program and then lets the user choose one of the options
      
     while True:
-        choice = input("\nWhat would you like to do:\n1. Track entries\n2. Budget\n3. Savings goals\n4. Currency Converter\n5. Remove user\n6. Log out\nChoice: ").strip()
+        choice = input("\nWhat would you like to do:\n1. Track entries\n2. Budget\n3. Savings goals\n4. Currency Converter\n5. Calculator\n6. Remove user\n7. Log out\nChoice: ").strip()
         if choice == '1':
             entry_tracking()
             pass
@@ -22,11 +23,13 @@ def menu(): # Introduces the program and then lets the user choose one of the op
         elif choice == '4':
             convert()
         elif choice == '5':
+            calc()
+        elif choice == '6':
             confirm = input(f"\nAre you sure you want to remove your user?: No(1) Yes(2)\nChoice: ").strip()
             if confirm == '2':
                 remove_user()
                 break
-        elif choice == '6':
+        elif choice == '7':
             print("You have logged out")
             break
         else:
