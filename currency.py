@@ -5,7 +5,7 @@ def convert(): # Converts and displays inputted amount of an inputted currency i
     
     while True:
         currency_names = "\n- US Dollar(USD)\n- Euro(EUR)\n- Japanese Yen(JPY)\n- British Pound(GBP)\n- Austrailian Dollar(AUD)\n- Canadian Dollar(CAD)\n- Swiss Franc(CHF)\n- Chinese Renminbi(CNH)\n- Hong Kong Dollar(HKD)\n- New Zealand Dollar(NZD)"
-        start_currency = input(f"\nWhat currency are you converting FROM? (Type the currency's abbreviation):\n[Exit(0) Disclaimer(1)]{currency_names}\nChoice: ").strip().upper()
+        start_currency = input(f"\nWhat currency are you converting FROM? (Type the currency's abbreviation):\n[Exit(0) Disclaimer(1)]{currency_names}\n\nChoice: ").strip().upper()
         if start_currency == "0":
             break
         if start_currency == "1":
@@ -17,7 +17,7 @@ def convert(): # Converts and displays inputted amount of an inputted currency i
         except:
             print("\nInvalid Input Type (Input a Number)")
             continue
-        end_currency = input(f"\nWhat currency are you converting TO?:{currency_names}\nChoice: ").strip().upper()
+        end_currency = input(f"\nWhat currency are you converting TO?:{currency_names}\n\nChoice: ").strip().upper()
 
         def convert_currency(user_currency, to_us): # Finds inputted currency and then converts the amount into either USD or the end currency
             nonlocal amount
