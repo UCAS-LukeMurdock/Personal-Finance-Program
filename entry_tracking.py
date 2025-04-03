@@ -61,8 +61,18 @@ def entry_tracking():
                     print(f'Net total: ${change}')
                 except ValueError:
                     print("Invalid date format! Please use YYYY-MM-DD.")
+
             elif choice == '3':
-                pass # LUKE create this
+                def display_all(type): # Displays all entries for either type of entry
+                    nonlocal users, user_ind
+                    print(f"\n{type}{'' if type == "Income" else 's'}:")
+                    for entry in users[user_ind][type]:
+                        print(f"\nDate- {entry[0]}\n{'Source' if type == "Income" else 'Category'}- {entry[2]}\nAmount- ${entry[1]}")
+                    input("\nPress Enter to continue\n")
+                
+                display_all("Income")
+                display_all("Expense")
+                
             else:
                 print('That is not an option. Try again...')
 
