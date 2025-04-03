@@ -40,10 +40,10 @@ def sign_in():
     for user in user_profiles:
         user["Active"] = False
     while True:
-        sign_in_choice = input("\nWhat would you like to do:\n1. Log in\n2. Sign up\n3. Quit\nChoice: ").strip()
+        sign_in_choice = input("\nWhat would you like to do:\n1. Log in\n2. Sign up\n3. Quit\n\nChoice: ").strip()
         if sign_in_choice == '1':
             found = False
-            user_name = input('Username: ').strip()
+            user_name = input('\nUsername: ').strip()
             password = input('Password: ').strip()
             for ind, user in enumerate(user_profiles):
                 if user_name == user['Name'] and password == user['Password']:
@@ -57,7 +57,7 @@ def sign_in():
                 print('\nUsername or password couldn\'t be found')
                 continue
         elif sign_in_choice == '2':
-            sign_up_user_name = input('Username: ').strip()
+            sign_up_user_name = input('\nUsername: ').strip()
             check = False
             for user in user_profiles:
                 if sign_up_user_name == user['Name']:
@@ -87,3 +87,5 @@ def sign_in():
             
 print("\n\n\nWelcome to this Personal Finance Program, where you can track entries, budget, and make savings goals.")
 sign_in()
+
+# Add instructions for pop ups and stupid proof visuals
