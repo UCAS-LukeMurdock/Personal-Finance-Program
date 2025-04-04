@@ -34,7 +34,7 @@ def add(): # Lets the user add or withdraw money from one of their goals that th
             continue
 
         try:
-            amount = float(input("How much Money do you want to Add to it? [Use - for Withdrawing from the Goal]:\n").strip())
+            amount = float(input("How much Money do you want to Add to it? [Use '-' for Withdrawing from the Goal]:\n").strip())
         except:
             print("Invalid Input Type (Input a Number)")
             continue

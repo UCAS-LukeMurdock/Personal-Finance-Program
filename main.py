@@ -25,7 +25,7 @@ def menu(): # Introduces the program and then lets the user choose one of the op
         elif choice == '5':
             calc()
         elif choice == '6':
-            confirm = input(f"\nAre you sure you want to remove your user?: No(1) Yes(2)\nChoice: ").strip()
+            confirm = input(f"\nAre you sure you want to remove your user?: Cancel(1) Confirm(2)\nChoice: ").strip()
             if confirm == '2':
                 remove_user()
                 break
@@ -35,7 +35,7 @@ def menu(): # Introduces the program and then lets the user choose one of the op
         else:
             print("That is not an option. Please try again...  (Please type the corresponding number)")
 
-def sign_in():
+def sign_in(): # 
     user_profiles = read_file()
     for user in user_profiles:
         user["Active"] = False
@@ -89,3 +89,5 @@ print("\n\n\nWelcome to this Personal Finance Program, where you can track entri
 sign_in()
 
 # Add instructions for pop ups and stupid proof visuals
+# README
+# Check Everything

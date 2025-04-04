@@ -10,6 +10,7 @@ def convert(): # Converts and displays inputted amount of an inputted currency i
             break
         if start_currency == "1":
             print("\nThis Currency Converter is not fully accurate because currency values are constantly changing.")
+            input("Press Enter to Continue\n")
             continue
         try:
             amount = round(float(input("\nHow much money of that currency are you converting? (Input a Number):\n").strip()),2)
