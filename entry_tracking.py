@@ -12,11 +12,18 @@ def entry_tracking():
     #Finds the active user
     user_ind = find_active(users)
     while True:
-        options = input('\nWhat would you like to do?\n1. Add income entry\n2. Add expense entry\n3. View total income and expenses\n4. Exit\n\nChoice: ')
+        options = input('\nWhat would you like to do?\n1. Add income entry\n2. Add expense entry\n3. View income and expenses\n4. Exit\n\nChoice: ')
         
         if options == '1':
             #Adding an income entry
-            income = input('How much income do you want your entry to have: ')
+            try:
+                income = round(float(input('How much income do you want your entry to have: ')), 2)
+            except:
+                print("That is not an option. Try again... (Type a Number)")
+                continue
+            if income <= 0:
+                print("That is not an option. Try again... (Type a Number greater than 0)")
+                continue
             source = input('What is the source of your income: ')
             date = dt.datetime.now().strftime("%Y-%m-%d") #Gets current date
             entry = [date, income, source]#Makes an income entry list
@@ -26,8 +33,15 @@ def entry_tracking():
         
         elif options == '2':
             #Adding an expense entry
-            expense = input('What is your entry\'s expense: ')
-            category = input('What is the category of your expense(housing, food, utilities, transportation, insurance, or other): ')
+            try:
+                expense = round(float(input('What is your entry\'s expense: ')), 2)
+            except:
+                print("That is not an option. Try again... (Type a Number)")
+                continue
+            if expense <= 0:
+                print("That is not an option. Try again... (Type a Number greater than 0)")
+                continue
+            category = input('What is the category of your expense (housing, food, utilities, transportation, insurance, or other):\n')
             if category in ['housing','food','utilities','transportation','insurance','other']:
                 date = dt.datetime.now().strftime("%Y-%m-%d")
                 entry = [date, expense, category]
@@ -35,12 +49,12 @@ def entry_tracking():
                 write_file(users)
                 print('Expense entry added successfully!')
             else:
-                print('That is not an option. Please try again.')
+                print('That is not an option. Please try again. (Type one of the allowed categories)')
                 continue
 
         elif options == '3':
             #Viewing the total income and expenses
-            choice = input('\nWhat do you want to see?\n1. Data visualization\n2. Time period\n3. Display All Entries\n\nChoice: ')
+            choice = input('\nWhat do you want to see?\n1. Data visualization\n2. Time period\n3. Display all entries\n\nChoice: ')
             
             if choice == '1':
                 #Calling the data visualization function
