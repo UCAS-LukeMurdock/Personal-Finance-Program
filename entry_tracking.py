@@ -77,11 +77,11 @@ def entry_tracking():
                     print("Invalid date format! Please use YYYY-MM-DD.")
 
             elif choice == '3':
-                def display_all(type): # Displays all entries for either type of entry
+                def display_all(entry_type): # Displays all entries for either type of entry
                     nonlocal users, user_ind
-                    print(f"\n{type}{'' if type == "Income" else 's'}:")
-                    for entry in users[user_ind][type]:
-                        print(f"\nDate- {entry[0]}\n{'Source' if type == "Income" else 'Category'}- {entry[2]}\nAmount- ${entry[1]}")
+                    print(f"\n{entry_type}{'' if entry_type == 'Income' else 's'}:")
+                    for entry in users[user_ind][entry_type]:
+                        print(f"\nDate- {entry[0]}\n{'Source' if entry_type == 'Income' else 'Category'}- {entry[2]}\nAmount- ${entry[1]}")
                     input("\nPress Enter to continue\n")
                 
                 display_all("Income")
