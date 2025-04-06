@@ -16,15 +16,16 @@ def budget():
 
     try:
         #Gathers the users input for spending limits in the categories
-        housing = int(input('\nHow much do you want your limit to be on housing:\n'))
-        food = int(input('\nHow much do you want your limit to be on food:\n'))
-        utilities = int(input('\nHow much do you want your limit to be on utilities:\n'))
-        transportation = int(input('\nHow much do you want your limit to be on transportation:\n'))
-        insurance = int(input('\nHow much do you want your limit to be on insurance:\n'))
-        other = int(input('\nHow much do you want your limit to be on other things:\n'))
+        housing = float(input('\nHow much do you want your limit to be on housing:\n'))
+        food = float(input('\nHow much do you want your limit to be on food:\n'))
+        utilities = float(input('\nHow much do you want your limit to be on utilities:\n'))
+        transportation = float(input('\nHow much do you want your limit to be on transportation:\n'))
+        insurance = float(input('\nHow much do you want your limit to be on insurance:\n'))
+        other = float(input('\nHow much do you want your limit to be on other things:\n'))
+
     #Error Handling
     except:
-        print("Invalid Input Type (Input in an Integer)")
+        print("Invalid Input Type (Input a number)")
         return
 
     #Reads the users data and finds who is the active user    
@@ -34,23 +35,26 @@ def budget():
     #Iterates over the active user's expenses to calculate the total spending in each category
     for expense in users[user_ind]['Expense']:
         if expense[2] == 'housing':
-            spent_housing += int(expense[1]) 
+            spent_housing += float(expense[1]) 
         elif expense[2] == 'food':
-            spent_food += int(expense[1])
+            spent_food += float(expense[1])
         elif expense[2] == 'utilities':
-            spent_utilities += int(expense[1])
+            spent_utilities += float(expense[1])
         elif expense[2] == 'transportation':
-            spent_transportation += int(expense[1])
+            spent_transportation += float(expense[1])
         elif expense[2] == 'insurance':
-            spent_insurance += int(expense[1])
+            spent_insurance += float(expense[1])
         elif expense[2] == 'other':
-            spent_other += int(expense[1])
+            spent_other += float(expense[1])
 
     categories = [[spent_housing, housing, "housing"], [spent_food, food, "food"], [spent_utilities, utilities, "utilities",], [spent_transportation, transportation, "transportation",], [spent_insurance, insurance, "insurance",], [spent_other, other, "other"]]
 
     #This is a helper function that displays the details of each category
     def display(spent, limit, name):
-        percent = round(spent/limit * 100, 2)
+        if limit == 0:
+            percent = 0
+        else:
+            percent = round(spent/limit * 100, 2)
         print(f'{name.title()}: Spent- ${spent}   Limit- ${limit}   Percentage of Limit- {percent}%')
 
     #Iterates over categories to display spending details
