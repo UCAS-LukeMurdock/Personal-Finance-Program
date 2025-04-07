@@ -17,11 +17,13 @@ def entry_tracking():
         if options == '1':
             #Adding an income entry
             try:
-                income = round(float(input('\nhow much income do you want your entry to have: ')), 2)
+                income = round(float(input('\nhow much income do you want your entry to have (Type "0" to Exit):\n')), 2)
             except:
                 print("\nThat is not an option. Try again... (Type a Number)")
                 continue
-            if income <= 0:
+            if income == 0:
+                continue
+            elif income < 0:
                 print("\nThat is not an option. Try again... (Type a Number greater than 0)")
                 continue
             source = input('\nWhat is the source of your income: ')
@@ -34,11 +36,13 @@ def entry_tracking():
         elif options == '2':
             #Adding an expense entry
             try:
-                expense = round(float(input('\nWhat is your entry\'s expense (amount of money): ')), 2)
+                expense = round(float(input('\nWhat is your entry\'s expense (Type "0" to Exit):\n')), 2)
             except:
                 print("\nThat is not an option. Try again... (Type a Number)")
                 continue
-            if expense <= 0:
+            if expense == 0:
+                continue
+            elif expense < 0:
                 print("\nThat is not an option. Try again... (Type a Number greater than 0)")
                 continue
             category = input('What is the category of your expense (housing, food, utilities, transportation, insurance, or other):\n')
@@ -69,10 +73,10 @@ def entry_tracking():
                     start_date = dt.datetime.strptime(start_time_period, "%Y-%m-%d")
                     end_date = dt.datetime.strptime(end_time_period, "%Y-%m-%d")
                     total_income, total_expenses = calculate_totals(users[user_ind], start_date, end_date)
-                    print(f"\nTotal Income: ${total_income:.2f}")
-                    print(f"Total Expenses: ${total_expenses:.2f}")
+                    print(f"\nTotal Income: ${total_income:,.2f}")
+                    print(f"Total Expenses: ${total_expenses:,.2f}")
                     change = total_income - total_expenses
-                    print(f'\nNet total: ${change}')
+                    print(f'\nNet total: ${change:,.2f}')
                 except ValueError:
                     print("\nInvalid date format! Please use YYYY-MM-DD.")
 
