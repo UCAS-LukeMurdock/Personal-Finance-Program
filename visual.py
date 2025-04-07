@@ -148,32 +148,36 @@ Your answer here:
             print('\nnot enough data\n')
 
     elif user_input == 3:
-            #make sure there is data in it
-            if len(account_data['e_amt']) > 0 or len(account_data['i_amt']) > 0:
-                #variables for incomepoints
-                i_x_points, y_points = add_values(account_data['i_date'], account_data['i_amt'])
+            finished = 1
+            if finished == 1:
+                #make sure there is data in it
+                if len(account_data['e_amt']) > 0 or len(account_data['i_amt']) > 0:
+                    #variables for incomepoints
+                    i_x_points, y_points = add_values(account_data['i_date'], account_data['i_amt'])
 
-                #assign graph bounds and margins (bit of space between the graph and edges)
-                bounds = [smallest_value(i_x_points), largest_value(i_x_points), smallest_value(y_points), largest_value(y_points)]
-                margins = [(bounds[1]-bounds[0])//20,(bounds[3]-bounds[2])//20]
+                    #assign graph bounds and margins (bit of space between the graph and edges)
+                    bounds = [smallest_value(i_x_points), largest_value(i_x_points), smallest_value(y_points), largest_value(y_points)]
+                    margins = [(bounds[1]-bounds[0])//20,(bounds[3]-bounds[2])//20]
 
-                #variables for expense points
-                i_x_points, y_points = add_values(account_data['i_date'], account_data['i_amt'])
+                    #variables for expense points
+                    i_x_points, y_points = add_values(account_data['i_date'], account_data['i_amt'])
 
-                #assign graph bounds and margins (bit of space between the graph and edges)
-                bounds = [smallest_value(i_x_points), largest_value(i_x_points), smallest_value(y_points), largest_value(y_points)]
-                margins = [(bounds[1]-bounds[0])//20,(bounds[3]-bounds[2])//20]
+                    #assign graph bounds and margins (bit of space between the graph and edges)
+                    bounds = [smallest_value(i_x_points), largest_value(i_x_points), smallest_value(y_points), largest_value(y_points)]
+                    margins = [(bounds[1]-bounds[0])//20,(bounds[3]-bounds[2])//20]
 
-                
+                    
 
-                fig, ax = plt.subplots()
-                ax.plot(i_x_points, y_points)
-                ax.set(xlim= (bounds[0], bounds[1]+margins[0]), ylim= (bounds[2]-margins[1], bounds[3]+margins[1]), xticks=np.arange(bounds[0], bounds[1]), yticks=np.arange(bounds[2], bounds[3]))
+                    fig, ax = plt.subplots()
+                    ax.plot(i_x_points, y_points)
+                    ax.set(xlim= (bounds[0], bounds[1]+margins[0]), ylim= (bounds[2]-margins[1], bounds[3]+margins[1]), xticks=np.arange(bounds[0], bounds[1]), yticks=np.arange(bounds[2], bounds[3]))
+
+                else:
+                    print('\nnot enough data\n')
             else:
-                print('\nnot enough data\n')
-
+                print('''
+This feature is extra credit and not finished. It might be finished later.
+''')
 
     #show graph
     plt.show()
-
-print('e')
