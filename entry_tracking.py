@@ -69,10 +69,10 @@ def entry_tracking():
                     start_date = dt.datetime.strptime(start_time_period, "%Y-%m-%d")
                     end_date = dt.datetime.strptime(end_time_period, "%Y-%m-%d")
                     total_income, total_expenses = calculate_totals(users[user_ind], start_date, end_date)
-                    print(f"Total Income: ${total_income:.2f}")
-                    print(f"Total Expenses: ${total_expenses:.2f}")
+                    print(f"Total Income: ${total_income:,.2f}")
+                    print(f"Total Expenses: ${total_expenses:,.2f}")
                     change = total_income - total_expenses
-                    print(f'Net total: ${change}')
+                    print(f'Net total: ${change:,.2f}')
                 except ValueError:
                     print("Invalid date format! Please use YYYY-MM-DD.")
 
