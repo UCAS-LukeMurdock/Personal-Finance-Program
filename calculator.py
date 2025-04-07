@@ -4,21 +4,21 @@ def calc(): # Calculates and Displays two inputted numbers using an inputted ope
     operation = ""
     print("\nThis is a Calculator that lets you choose two numbers and the operation that is used on them.")
     while True:
-        num1 = input('\nFirst number? (Type "Exit" to Exit): ').lower()
+        num1 = input('\nWhat is the first number? (Type "Exit" to Exit): ').lower()
         if num1 == "exit":
             break
         try:
             num1 = float(num1)
         except:
-            print("Not a Number")
+            print("\nNot a Number")
             continue
 
-        operation = input("What operation? (+, -, *, /, ** [exponents], // [divison without remainder], % [division's remainder]): ")
+        operation = input("\nWhat operation are you doing? (+, -, *, /, ** [exponents], // [divison without remainder], % [division's remainder]): ")
 
         try:
-            num2 = float(input("Second number?: "))
+            num2 = float(input("\nWhat is the second number?: "))
         except:
-            print("Not a Number")
+            print("\nNot a Number")
             continue
         
         # Calculates
@@ -31,7 +31,7 @@ def calc(): # Calculates and Displays two inputted numbers using an inputted ope
         
         elif (operation == "/") :
             if num2 == 0:
-                print("Divide by 0 Error")
+                print("\nDivide by 0 Error")
                 continue
             else:
                 answer = num1 / num2

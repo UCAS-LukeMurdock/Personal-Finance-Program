@@ -3,6 +3,6 @@ commanderjets,Password123!,"[['2025-04-03', 3.1, 'fun'], ['2025-04-03', 200.0, '
 luke,murdock,"[['2025-04-01', '30', 'banana'], ['2025-04-01', '12', '3']]",[],[],False
 d,g,"[['2025-04-01', '1000000', ""Don't ask""]]",[],"[['money', 20000000000.0, 2.0]]",False
 jenfamily,howdy,[],[],"[['a house', 300000.0, 3000.0]]",False
-GoatistCult,GoatImagination,"[['2025-04-02', '30', 'cheese'], ['2025-04-03', '25', 'food']]",[],[],True
+GoatistCult,GoatImagination,"[['2025-04-02', '30', 'cheese'], ['2025-04-03', '25', 'food'], ['2025-04-07', 21.0, 'goats']]","[['2025-04-07', 32.0, 'food']]",[],True
 hi,123,"[['2025-04-02', '34', 'dog'], ['2025-04-02', '2', 'job']]","[['2025-04-02', '22', 'food']]",[],False
 davemurdock55,Password123!,"[['2025-04-03', '1000', 'work'], ['2025-04-03', '0', 'investments']]","[['2025-04-03', '150', 'transportation']]",[],False

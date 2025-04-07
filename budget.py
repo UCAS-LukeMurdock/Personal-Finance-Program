@@ -24,7 +24,7 @@ def budget():
         other = int(input('\nHow much do you want your limit to be on other things:\n'))
     #Error Handling
     except:
-        print("Invalid Input Type (Input in an Integer)")
+        print("\nInvalid Input Type (Input in an Integer)")
         return
 
     #Reads the users data and finds who is the active user    
@@ -51,7 +51,7 @@ def budget():
     #This is a helper function that displays the details of each category
     def display(spent, limit, name):
         percent = round(spent/limit * 100, 2)
-        print(f'{name.title()}: Spent- ${spent}   Limit- ${limit}   Percentage of Limit- {percent}%')
+        print(f'\n{name.title()}: Spent- ${spent}   Limit- ${limit}   Percentage of Limit- {percent}%')
 
     #Iterates over categories to display spending details
     for each in categories:
