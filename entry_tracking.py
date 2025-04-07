@@ -17,11 +17,13 @@ def entry_tracking():
         if options == '1':
             #Adding an income entry
             try:
-                income = round(float(input('How much income do you want your entry to have: ')), 2)
+                income = round(float(input('How much income do you want your entry to have (Type "0" to Exit):\n')), 2)
             except:
                 print("That is not an option. Try again... (Type a Number)")
                 continue
-            if income <= 0:
+            if income == 0:
+                continue
+            elif income < 0:
                 print("That is not an option. Try again... (Type a Number greater than 0)")
                 continue
             source = input('What is the source of your income: ')
@@ -34,11 +36,13 @@ def entry_tracking():
         elif options == '2':
             #Adding an expense entry
             try:
-                expense = round(float(input('What is your entry\'s expense: ')), 2)
+                expense = round(float(input('What is your entry\'s expense (Type "0" to Exit): ')), 2)
             except:
                 print("That is not an option. Try again... (Type a Number)")
                 continue
-            if expense <= 0:
+            if expense == 0:
+                continue
+            elif expense < 0:
                 print("That is not an option. Try again... (Type a Number greater than 0)")
                 continue
             category = input('What is the category of your expense (housing, food, utilities, transportation, insurance, or other):\n')
