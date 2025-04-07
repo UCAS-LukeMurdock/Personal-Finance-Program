@@ -123,57 +123,73 @@ def graph_menu():
     df = pd.read_csv('users.csv').to_dict()
     account_data = dict_to_list(df)
 
-    #ask user if they want to see a pie chart or a line graph
-    user_input = input('''\nWhat would you like to see? Type:
+
+    #loop continuously
+    while True:
+        #ask user if they want to see a pie chart or a line graph
+        user_input = input('''\nWhat would you like to see? Type:
 1 to see a pie chart of your income
 2 to see a pie chart of your expenses
-3 to see a line graph of both over time
+3 to see a line graph of both over time (doesn't work yet)
+4 to exit
 Your answer here:
 ''')
-    user_input = is_int(user_input)
-    
-    if user_input == 1:
-        #make sure there is data in it
-        if len(account_data['i_amt']) > 0:
-            plt.pie(account_data['i_amt'],labels=account_data['i_name'])
-        else:
-            print('\nnot enough data\n')
-
-    
-    elif user_input == 2:
-        #make sure there is data in it
-        if len(account_data['e_amt']) > 0:
-            plt.pie(account_data['e_amt'],labels=account_data['e_name'])
-        else:
-            print('\nnot enough data\n')
-
-    elif user_input == 3:
+        user_input = is_int(user_input)
+        
+        if user_input == 1:
             #make sure there is data in it
-            if len(account_data['e_amt']) > 0 or len(account_data['i_amt']) > 0:
-                #variables for incomepoints
-                i_x_points, y_points = add_values(account_data['i_date'], account_data['i_amt'])
-
-                #assign graph bounds and margins (bit of space between the graph and edges)
-                bounds = [smallest_value(i_x_points), largest_value(i_x_points), smallest_value(y_points), largest_value(y_points)]
-                margins = [(bounds[1]-bounds[0])//20,(bounds[3]-bounds[2])//20]
-
-                #variables for expense points
-                i_x_points, y_points = add_values(account_data['i_date'], account_data['i_amt'])
-
-                #assign graph bounds and margins (bit of space between the graph and edges)
-                bounds = [smallest_value(i_x_points), largest_value(i_x_points), smallest_value(y_points), largest_value(y_points)]
-                margins = [(bounds[1]-bounds[0])//20,(bounds[3]-bounds[2])//20]
-
-                
-
-                fig, ax = plt.subplots()
-                ax.plot(i_x_points, y_points)
-                ax.set(xlim= (bounds[0], bounds[1]+margins[0]), ylim= (bounds[2]-margins[1], bounds[3]+margins[1]), xticks=np.arange(bounds[0], bounds[1]), yticks=np.arange(bounds[2], bounds[3]))
+            if len(account_data['i_amt']) > 0:
+                plt.pie(account_data['i_amt'],labels=account_data['i_name'])
             else:
                 print('\nnot enough data\n')
+                continue
 
+        
+        elif user_input == 2:
+            #make sure there is data in it
+            if len(account_data['e_amt']) > 0:
+                plt.pie(account_data['e_amt'],labels=account_data['e_name'])
+            else:
+                print('\nnot enough data\n')
+                continue
 
-    #show graph
-    plt.show()
+        elif user_input == 3:
+                finished = 1
+                if finished == 1:
+                    #make sure there is data in it
+                    if len(account_data['e_amt']) > 0 or len(account_data['i_amt']) > 0:
+                        #variables for incomepoints
+                        i_x_points, y_points = add_values(account_data['i_date'], account_data['i_amt'])
 
-print('e')
+                        #assign graph bounds and margins (bit of space between the graph and edges)
+                        bounds = [smallest_value(i_x_points), largest_value(i_x_points), smallest_value(y_points), largest_value(y_points)]
+                        margins = [(bounds[1]-bounds[0])//20,(bounds[3]-bounds[2])//20]
+
+                        #variables for expense points
+                        i_x_points, y_points = add_values(account_data['i_date'], account_data['i_amt'])
+
+                        #assign graph bounds and margins (bit of space between the graph and edges)
+                        bounds = [smallest_value(i_x_points), largest_value(i_x_points), smallest_value(y_points), largest_value(y_points)]
+                        margins = [(bounds[1]-bounds[0])//20,(bounds[3]-bounds[2])//20]
+
+                        
+
+                        fig, ax = plt.subplots()
+                        ax.plot(i_x_points, y_points)
+                        ax.set(xlim= (bounds[0], bounds[1]+margins[0]), ylim= (bounds[2]-margins[1], bounds[3]+margins[1]), xticks=np.arange(bounds[0], bounds[1]), yticks=np.arange(bounds[2], bounds[3]))
+
+                    else:
+                        print('\nnot enough data\n')
+                        continue
+                else:
+                    print('''
+    This feature is extra credit and not finished. It might be finished later.
+    ''')
+                    continue
+                    
+        elif user_input == 4:
+            break
+
+        #show graph
+        print("\nto continue, exit the graph\n")
+        plt.show()

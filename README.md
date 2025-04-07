@@ -48,7 +48,7 @@ Luke: The team leader of this project is Luke Murdock and he is a student at UCA
 
 Alishya: The Senior Programmer of this project is Alishya Xavier. She is a freshman in highschool at Utah County Academy of Sciences. She has been taking program classes starting in middleschool to be able to learn python and enjoy using it. Some other things she enjoy doing are baking, spending time with her friends, and playing volleyball. At the moment she is trying multiple different things in highschool to be able to be open minded and enjoy every moment in whatever she decides in her future.
 
-Alec:  
+Alec: The UX/UI designer is Alec George. He is a student at UCAS, in the CS 1400 class. He's done a lot of programming in the past, and learned the basics of python over the summer before this released. This class has increased his knowledge of the subject a lot, something he likes doing. Alec enjoys programming, gaming, reading, mathematics, and learning in general. He probably made you lose the game by reading this last part.
 
 ## Change Log
 ---
