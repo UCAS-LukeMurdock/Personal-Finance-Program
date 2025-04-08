@@ -23,7 +23,7 @@ def add(): # Lets the user add or withdraw money from one of their goals that th
     user_ind = find_active(profiles)
     goal_ind = -1
     while True:
-        choice = input("Which Goal did you want to change its progress for? [Type '0' to Exit]:\n").strip()
+        choice = input('Which Goal did you want to change its progress for? [Type "0" to Exit]:\n').strip()
         if choice == "0":
             break
         for ind, goal in enumerate(profiles[user_ind]["Goals"]):
@@ -34,7 +34,7 @@ def add(): # Lets the user add or withdraw money from one of their goals that th
             continue
 
         try:
-            amount = float(input("How much Money do you want to Add to it? [Use '-' for Withdrawing from the Goal]:\n").strip())
+            amount = float(input('How much Money do you want to Add to it? [Use "-" for Withdrawing from the Goal]:\n').strip())
         except:
             print("Invalid Input Type (Input a Number)")
             continue
@@ -68,7 +68,7 @@ def view(): # Lets the user see either a specific goal or all of their goals
 
 def goal_menu(): # Lets the user choose what to do with their goals
     while True:
-        choice = input("\nSavings Goals\nCreate Goal(1) Change Goal Progress(2) View Goals(3) Exit(4)\n\nChoice: ").strip()
+        choice = input("\nSavings Goals\nWhat would you like to do?:\n1. create goal\n2. change goal progress\n3. view goals\n4. exit\n\nYour choice here: ").strip()
         if choice == "1":
             create()
         elif choice == "2":

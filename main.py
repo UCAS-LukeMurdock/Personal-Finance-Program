@@ -12,7 +12,7 @@ from calculator import calc
 def menu(): # Introduces the program and then lets the user choose one of the options
      
     while True:
-        choice = input("\nWhat would you like to do:\n1. track entries\n2. create a budget\n3. create savings goals\n4. convert currency\n5. use a calculator\n6. remove user\n7. Log out\nyour choice here: ").strip()
+        choice = input("\nWhat would you like to do?:\n1. track income & expense entries\n2. create a budget\n3. create savings goals\n4. convert currency\n5. use a calculator\n6. remove user\n7. log out\n\nYour choice here: ").strip()
         if choice == '1':
             entry_tracking()
             pass
@@ -25,7 +25,7 @@ def menu(): # Introduces the program and then lets the user choose one of the op
         elif choice == '5':
             calc()
         elif choice == '6':
-            confirm = input(f"\nAre you sure you want to remove your user? Type:\n1. cancel\n2. confirm\nyour choice here: ").strip()
+            confirm = input(f"\nAre you sure you want to remove your user?\n1. cancel\n2. confirm\n\nYour choice here: ").strip()
             if confirm == '2':
                 remove_user()
                 break
@@ -40,11 +40,11 @@ def sign_in(): #
     for user in user_profiles:
         user["Active"] = False
     while True:
-        sign_in_choice = input("\nwhat would you like to do:\n1. log in\n2. sign up\n3. quit\n\nyour choice here: ").strip()
+        sign_in_choice = input("\nWhat would you like to do?:\n1. log in\n2. sign up\n3. quit\n\nYour choice here: ").strip()
         if sign_in_choice == '1':
             found = False
             user_name = input('\nusername: ').strip()
-            password = input('\nuassword: ').strip()
+            password = input('\npassword: ').strip()
             for ind, user in enumerate(user_profiles):
                 if user_name == user['Name'] and password == user['Password']:
                     user_profiles[ind]["Active"] = True
@@ -61,7 +61,7 @@ def sign_in(): #
             check = False
             for user in user_profiles:
                 if sign_up_user_name == user['Name']:
-                    print('\nthat username has been already taken.\n')
+                    print('\nThat username has already been taken.\n')
                     check = True
             if check == True:
                 continue       
@@ -72,11 +72,13 @@ def sign_in(): #
                 "Password": sign_up_password,
                 "Income": [],
                 "Expense": [],
+
+
                 "Goals": [],
                 "Active": False,}
             user_profiles.append(profile)
             write_file(user_profiles)
-            print("\ncreated new profile") #Now they go back and can go log in to that account
+            print("\nCreated new profile") #Now they go back and can go log in to that account
 
         elif sign_in_choice == '3':
             print('\n\nThank you for using your Personal Finance Program!\n\n\n')
