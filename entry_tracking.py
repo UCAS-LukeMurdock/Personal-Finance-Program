@@ -12,12 +12,12 @@ def entry_tracking():
     #Finds the active user
     user_ind = find_active(users)
     while True:
-        options = input('\nWhat would you like to do?\n1. add an income entry\n2. add an expense entry\n3. view income and expenses\n4. Exit\n\nyour choice here: ')
+        options = input('\nWhat would you like to do?:\n1. add an income entry\n2. add an expense entry\n3. view income and expenses\n4. exit\n\nYour choice here: ').strip()
         
         if options == '1':
             #Adding an income entry
             try:
-                income = round(float(input('\nhow much income do you want your entry to have (Type "0" to Exit):\n')), 2)
+                income = round(float(input('\nHow much income do you want your entry to have (Type "0" to Exit):\n').strip()), 2)
             except:
                 print("\nThat is not an option. Try again... (Type a Number)")
                 continue
@@ -26,7 +26,7 @@ def entry_tracking():
             elif income < 0:
                 print("\nThat is not an option. Try again... (Type a Number greater than 0)")
                 continue
-            source = input('\nWhat is the source of your income: ')
+            source = input('\nWhat is the source of your income: ').strip()
             date = dt.datetime.now().strftime("%Y-%m-%d") #Gets current date
             entry = [date, income, source]#Makes an income entry list
             users[user_ind]['Income'].append(entry)#Adds entry to the users data
@@ -36,16 +36,16 @@ def entry_tracking():
         elif options == '2':
             #Adding an expense entry
             try:
-                expense = round(float(input('\nWhat is your entry\'s expense (Type "0" to Exit):\n')), 2)
+                expense = round(float(input('\nWhat is your entry\'s expense (Type "0" to Exit):\n').strip()), 2)
             except:
-                print("\nThat is not an option. Try again... (Type a Number)")
+                print("\nThat is not an option. Try again... (Type a Number)").strip()
                 continue
             if expense == 0:
                 continue
             elif expense < 0:
-                print("\nThat is not an option. Try again... (Type a Number greater than 0)")
+                print("\nThat is not an option. Try again... (Type a Number greater than 0)").strip()
                 continue
-            category = input('What is the category of your expense (housing, food, utilities, transportation, insurance, or other):\n')
+            category = input('What is the category of your expense: (housing, food, utilities, transportation, insurance, or other)\n').lower().strip()
             if category in ['housing','food','utilities','transportation','insurance','other']:
                 date = dt.datetime.now().strftime("%Y-%m-%d")
                 entry = [date, expense, category]
@@ -58,7 +58,7 @@ def entry_tracking():
 
         elif options == '3':
             #Viewing the total income and expenses
-            choice = input('\nWhat do you want to see?\n1. Graphs/charts of income or expense\n2. income/expense in a time period\n3. display all entries\n\nyour choice here: ')
+            choice = input('\nWhat do you want to see?:\n1. graphs/charts of income or expense\n2. total income/expense in a time period\n3. display all entries\n4. exit\n\nYour choice here: ')
             
             if choice == '1':
                 #Calling the data visualization function
@@ -66,8 +66,8 @@ def entry_tracking():
 
             elif choice == '2':
                 #Views income and expenses for specific time period
-                start_time_period = input('\nWhat is your start day(YYYY-MM-DD): ')
-                end_time_period = input('\nWhat is your end day(YYYY-MM-DD): ')
+                start_time_period = input('\nWhat is your start day(YYYY-MM-DD): ').strip()
+                end_time_period = input('\nWhat is your end day(YYYY-MM-DD): ').strip()
                 try:
                     #Shows total income and expenses if date format is properly inputted
                     start_date = dt.datetime.strptime(start_time_period, "%Y-%m-%d")
@@ -90,15 +90,16 @@ def entry_tracking():
                 
                 display_all("Income")
                 display_all("Expense")
-                
+            elif choice == '4':
+                continue
             else:
                 print('\nThat is not an option. Try again...')
 
         elif options == '4':
-            print('\nExiting the tracker!')
+            print('\nExiting the tracker')
             break
         else:
-            print('\nThat is not an option. Try again...')
+            print('\nThat is not an option. Try again... (You will have to first come back to "view income and expenses")')
 
 
 # Function to calculate total income and expenses with time period

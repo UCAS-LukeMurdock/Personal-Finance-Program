@@ -52,10 +52,15 @@ def budget():
     #This is a helper function that displays the details of each category
     def display(spent, limit, name):
         if limit == 0:
-            percent = 0
+            if spent > 0:
+                percent = ">100"
+            elif spent == 0:
+                percent = "100"
+            elif spent < 0:
+                percent = "<100"
         else:
             percent = round(spent/limit * 100, 2)
-        print(f'\n{name.title()}: Spent- ${spent}   Limit- ${limit}   Percentage of Limit- {percent}%')
+        print(f'\n{name.title()}: Spent- ${spent}   Limit- ${limit}   How much over Limit- {spent-limit}   Percentage of Limit Met- {percent}%')
 
     #Iterates over categories to display spending details
     for each in categories:
