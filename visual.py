@@ -104,7 +104,7 @@ def dict_to_list(data):
             information = data['Expense'][index]
             information = eval(information)
             for expense in information:
-                account['e_date'].append(expense[0])
+                account['e_date'].append(expense[0].split('-'))
                 account['e_amt'].append(int(expense[1]))
                 account['e_name'].append(expense[2])
 
@@ -130,7 +130,7 @@ def graph_menu():
         user_input = input('''\nWhat would you like to see? Type:
 1 to see a pie chart of your income
 2 to see a pie chart of your expenses
-3 to see a line graph of both over time (doesn't work yet)
+3 to see a line graph of both over time
 4 to exit
 Your answer here:
 ''')
@@ -154,39 +154,40 @@ Your answer here:
                 continue
 
         elif user_input == 3:
-                finished = 1
-                if finished == 1:
-                    #make sure there is data in it
-                    if len(account_data['e_amt']) > 0 or len(account_data['i_amt']) > 0:
-                        #variables for incomepoints
-                        i_x_points, y_points = add_values(account_data['i_date'], account_data['i_amt'])
+            #variables for income points
+            i_x_points, i_y_points = add_values(account_data['i_date'], account_data['i_amt'])
+            
+            #variables for expense points
+            e_x_points, e_y_points = add_values(account_data['e_date'], account_data['e_amt'])
 
-                        #assign graph bounds and margins (bit of space between the graph and edges)
-                        bounds = [smallest_value(i_x_points), largest_value(i_x_points), smallest_value(y_points), largest_value(y_points)]
-                        margins = [(bounds[1]-bounds[0])//20,(bounds[3]-bounds[2])//20]
+            #make sure there is data in it
+            if len(account_data['e_amt']) > 1 or len(account_data['i_amt']) > 1:
+                
 
-                        #variables for expense points
-                        i_x_points, y_points = add_values(account_data['i_date'], account_data['i_amt'])
+                #assign graph bounds and margins (bit of space between the graph and edges)
+                bounds = [smallest_value([smallest_value(i_x_points),smallest_value(e_x_points)]), largest_value([largest_value(i_x_points),largest_value(e_x_points)]), smallest_value([smallest_value(i_y_points),smallest_value(e_y_points)]), largest_value([largest_value(i_y_points),largest_value(e_y_points)])]
+                margins = [(bounds[1]-bounds[0])//20,(bounds[3]-bounds[2])//20]
 
-                        #assign graph bounds and margins (bit of space between the graph and edges)
-                        bounds = [smallest_value(i_x_points), largest_value(i_x_points), smallest_value(y_points), largest_value(y_points)]
-                        margins = [(bounds[1]-bounds[0])//20,(bounds[3]-bounds[2])//20]
+                
 
-                        
+                fig, ax = plt.subplots()
+                #plot lines
+                ax.plot(i_x_points, i_y_points)
+                ax.plot(e_x_points, e_y_points)
 
-                        fig, ax = plt.subplots()
-                        ax.plot(i_x_points, y_points)
-                        ax.set(xlim= (bounds[0], bounds[1]+margins[0]), ylim= (bounds[2]-margins[1], bounds[3]+margins[1]), xticks=np.arange(bounds[0], bounds[1]), yticks=np.arange(bounds[2], bounds[3]))
+                #give axes names
+                plt.xlabel('Time')
+                plt.ylabel('Income')
 
-                    else:
-                        print('\nnot enough data\n')
-                        continue
-                else:
-                    print('''
-    This feature is extra credit and not finished. It might be finished later.
-    ''')
-                    continue
-                    
+                #set graph size
+                ax.set(xlim= (bounds[0], bounds[1]+margins[0]), ylim= (bounds[2]-margins[1], bounds[3]+margins[1]), xticks=np.arange(bounds[0], bounds[1]), yticks=np.arange(bounds[2], bounds[3]), )
+
+                #give information
+                print("\nBlue is income\nBlue is expense")
+            else:
+                print('\nnot enough data\n')
+                continue
+                
         elif user_input == 4:
             break
 
