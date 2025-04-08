@@ -5,7 +5,6 @@ def convert(): # Converts and displays inputted amount of an inputted currency i
     
     print("\nDisclaimer:\nThis Currency Converter is not fully accurate because currency values are constantly changing.")
     while True:
-
         try:
             amount = float(input('\nHow much money are you converting? [Type "0" to Exit] (Input a Number):\n').strip())
         except:

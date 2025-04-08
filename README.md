@@ -28,9 +28,14 @@ To use this program you will have to run the main file's code with having the ot
 
 ## Current Features
 ---
-+ First feature I am proud of
-+ Second feature I am proud of
-+ Third feature I am proud of  
++ Create accounts - the program can handle multiple people, each with their own account
++ Add income and expense - each account has a list of incomes and expenses, including their date, amount, and reason/source
++ Data visualization - income and expense can be viewed as pie charts or a line graph
++ Set goals - all accounts can create and work towards any number of specific goals
++ Budgeting - accounts can create a budget for expenses and see how well they are doing at following that budget
++ Currency conversion - allows for people to view how much an amount is worth in one currency compared to another
++ Calculator - built in calculator  
+
 
 ## Contributions
 ---
@@ -38,9 +43,8 @@ Not used for this class
 
 ## Contributors
 ---
-+ Person who helped - what they did
-+ Person who helped - what they did
-+ Person who helped - what they did  
++ Copilot - helped with debugging
++ MatPlotLib documentation - helped with graph stuff  
 
 ## Author's Information
 ---
