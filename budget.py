@@ -61,8 +61,15 @@ def budget():
                 percent = "<100"
         else:
             percent = round(spent/limit * 100, 2)
-        print(f'\n{name.title()}: Spent- ${spent}   Limit- ${limit}   How much over Limit- ${dif}   Percentage of Limit Met- {percent}%\n{f"You went over your {name} limit." if dif > 0 else f'You stayed within your {name} limit'}')
+        print(f'\n{name.title()}: Spent- ${spent}   Limit- ${limit}   How much over Limit- ${dif}   Percentage of Limit Met- {percent}%')
+        if dif > 0:
+            print(f"You went over your {name} limit.")
+
+        else:
+            print(f'You stayed within your {name} limit')
+
 
     #Iterates over categories to display spending details
     for each in categories:
         display(each[0],each[1],each[2])
+
