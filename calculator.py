@@ -4,16 +4,13 @@ def calc(): # Calculates and Displays two inputted numbers using an inputted ope
     operation = ""
     print("\nThis is a Calculator that lets you choose two numbers and the operation that is used on them.")
     while True:
-        num1 = input('\nWhat is the first number? (Type "Exit" to Exit): ').lower().strip()
-        if num1 == "exit":
-            break
         try:
-            num1 = float(num1)
+            num1 = float(input('\nWhat is the first number?: ').strip())
         except:
             print("\nNot a Number")
             continue
 
-        operation = input("\nWhat operation are you doing? (+, -, *, /, ** [exponents], // [divison without remainder], % [division's remainder]): ").strip()
+        operation = input("\nWhat operation are you doing?:\n(+, -, *, /, ** [exponents], // [divison without remainder], % [division's remainder])\n\nYour choice here: ").strip()
 
         try:
             num2 = float(input("\nWhat is the second number?: ").strip())
@@ -46,3 +43,4 @@ def calc(): # Calculates and Displays two inputted numbers using an inputted ope
             answer = "error"
 
         print(num1, operation, num2, "=", answer)
+        break

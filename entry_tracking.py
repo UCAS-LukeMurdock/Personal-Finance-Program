@@ -40,14 +40,14 @@ def entry_tracking():
             try:
                 expense = round(float(input('\nWhat is your entry\'s expense (Type "0" to Exit):\n').strip()), 2)
             except:
-                print("\nThat is not an option. Try again... (Type a Number)").strip()
+                print("\nThat is not an option. Try again... (Type a Number)")
                 continue
             if expense == 0:
                 continue
             elif expense < 0:
-                print("\nThat is not an option. Try again... (Type a Number greater than 0)").strip()
+                print("\nThat is not an option. Try again... (Type a Number greater than 0)")
                 continue
-            category = input('What is the category of your expense: (housing, food, utilities, transportation, insurance, or other)\n').lower().strip()
+            category = input('What is the category of your expense?:\n(housing, food, utilities, transportation, insurance, or other)\n\nYour choice here: ').lower().strip()
             if category in ['housing','food','utilities','transportation','insurance','other']:
                 date = dt.datetime.now().strftime("%Y-%m-%d")
                 entry = [date, expense, category]
