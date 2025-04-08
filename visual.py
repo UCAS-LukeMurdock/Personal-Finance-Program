@@ -180,10 +180,10 @@ Your answer here:
                 plt.ylabel('Income')
 
                 #set graph size
-                ax.set(xlim= (bounds[0], bounds[1]+margins[0]), ylim= (bounds[2]-margins[1], bounds[3]+margins[1]), xticks=np.arange(bounds[0], bounds[1]), yticks=np.arange(bounds[2], bounds[3]), )
+                ax.set(xlim=(bounds[0], bounds[1]+margins[0]), ylim=(bounds[2]-margins[1], bounds[3]+margins[1]), xticks=np.arange(bounds[0], bounds[1]), yticks=np.arange(bounds[2], bounds[3]))
 
                 #give information
-                print("\nBlue is income\nBlue is expense")
+                print("\nBlue is income\nOrange is expense")
             else:
                 print('\nnot enough data\n')
                 continue
