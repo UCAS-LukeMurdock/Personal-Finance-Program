@@ -56,7 +56,7 @@ def view(): # Lets the user see either a specific goal or all of their goals
     found = False
 
     profiles_goal_index = profiles[user_ind]["Goals"]
-    choice = input("Type desired goal or type 'All' to view all goals:\n").strip()
+    choice = input("Type your desired goal to view it or type 'All' to view all goals:\n").strip()
     for goal_ind, goal in enumerate(profiles[user_ind]["Goals"]):
         if choice.upper() == goal[0].upper() and choice != '0':
             print(f"\n{profiles_goal_index[goal_ind][0]}: ${profiles_goal_index[goal_ind][2]}/${profiles_goal_index[goal_ind][1]}  {round(float(profiles_goal_index[goal_ind][2])/float(profiles_goal_index[goal_ind][1])*100,2)}% Completion")
@@ -69,8 +69,9 @@ def view(): # Lets the user see either a specific goal or all of their goals
         print("No Goals Found")
 
 def goal_menu(): # Lets the user choose what to do with their goals
+    print("\nThis savings goal tool lets you create goals with specified names and the amounts you want to reach. You can then change and view the progress of one of your goals, and when it is completed it will remove the goal.")
     while True:
-        choice = input("\nSavings Goals\nWhat would you like to do?:\n1. create goal\n2. change goal progress\n3. view goals\n4. exit\n\nYour choice here: ").strip()
+        choice = input("\nWhat would you like to do?:\n1. create goal\n2. change goal progress\n3. view goals\n4. exit\n\nYour choice here: ").strip()
         if choice == "1":
             create()
         elif choice == "2":

@@ -90,6 +90,6 @@ def sign_in(): #
 print("\n\n\nWelcome to this Personal Finance Program, where you can track entries, budget, and make savings goals.")
 sign_in()
 
-# Add instructions for pop ups and stupid proof visuals
+
 # README
 # Check Everything
