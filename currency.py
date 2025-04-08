@@ -7,17 +7,14 @@ def convert(): # Converts and displays inputted amount of an inputted currency i
     print("\nDisclaimer:\nThis currency converter is not fully accurate because currency values are constantly changing.")
     while True:
         try:
-            amount = float(input('\nHow much money are you converting? [Type "0" to Exit] (Input a Number):\n').strip())
+            amount = round(float(input('\nHow much money are you converting? (Input a Number):\n').strip()), 2)
         except:
             print("\nInvalid Input Type (Input a Number)")
             continue
-        if amount == 0:
-            continue
-        amount = round(amount,2)
         start_amount = amount
 
         currency_names = "\n- US Dollar(USD)\n- Euro(EUR)\n- Japanese Yen(JPY)\n- British Pound(GBP)\n- Austrailian Dollar(AUD)\n- Canadian Dollar(CAD)\n- Swiss Franc(CHF)\n- Chinese Renminbi(CNH)\n- Hong Kong Dollar(HKD)\n- New Zealand Dollar(NZD)"
-        start_currency = input(f"\nWhat currency are you converting FROM? (Type the currency's abbreviation):\n\n{currency_names}\n\nYour choice here: ").strip().upper()
+        start_currency = input(f"\nWhat currency are you converting FROM? (Type the currency's abbreviation):\n{currency_names}\n\nYour choice here: ").strip().upper()
 
         def convert_currency(user_currency, to_us): # Finds inputted currency and then converts the amount into either USD or the end currency
             nonlocal amount
@@ -31,12 +28,13 @@ def convert(): # Converts and displays inputted amount of an inputted currency i
             return False
 
         if convert_currency(start_currency, True) == False:
-            print("\n\nStarting Currency is an Invalid Input (Insert the currency's abbreviation)\n")
+            print("\n\nStarting Currency is an Invalid Input (Insert the currency's abbreviation)")
             continue
 
-        end_currency = input(f"\nWhat currency are you converting TO?:{currency_names}\n\nChoice: ").strip().upper()
+        end_currency = input(f"\nWhat currency are you converting TO?:\n{currency_names}\n\nChoice: ").strip().upper()
         if convert_currency(end_currency, False) == False:
             print("\nEnding Currency is an Invalid Input (Insert the currency's abbreviation)")
             continue
 
-        print(f"{start_amount} in {start_currency} is {amount} in {end_currency}")
+        print(f"{start_amount} in {start_currency} is {amount} in {end_currency}\n")
+        break

@@ -183,7 +183,7 @@ Your answer here:
                 ax.set(xlim=(bounds[0], bounds[1]+margins[0]), ylim=(bounds[2]-margins[1], bounds[3]+margins[1]), xticks=np.arange(bounds[0], bounds[1]), yticks=np.arange(bounds[2], bounds[3]))
 
                 #give information
-                print("\nBlue is income\nOrange is expense")
+                print("\nBlue is income\nOrange is expense\nThis graph plots the lines over a period of multiple days (If you only have entries from one day then it can't make lines over time)")
             else:
                 print('\nnot enough data\n')
                 continue
