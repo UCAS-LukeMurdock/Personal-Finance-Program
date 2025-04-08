@@ -6,7 +6,7 @@ def convert(): # Converts and displays inputted amount of an inputted currency i
     print("\nDisclaimer:\nThis Currency Converter is not fully accurate because currency values are constantly changing.")
     while True:
         currency_names = "\n- US Dollar(USD)\n- Euro(EUR)\n- Japanese Yen(JPY)\n- British Pound(GBP)\n- Austrailian Dollar(AUD)\n- Canadian Dollar(CAD)\n- Swiss Franc(CHF)\n- Chinese Renminbi(CNH)\n- Hong Kong Dollar(HKD)\n- New Zealand Dollar(NZD)"
-        start_currency = input(f"\nWhat currency are you converting FROM? (Type the currency's abbreviation):\n{currency_names}\n\nType 0 to exit\nType 1 to view disclaimer\n\nYour choice here: ").strip().upper()
+        start_currency = input(f"\nWhat currency are you converting FROM? (Type the currency's abbreviation):\n{currency_names}\n\nType 0 to exit\n\nYour choice here: ").strip().upper()
         if start_currency == "0":
             break
 
