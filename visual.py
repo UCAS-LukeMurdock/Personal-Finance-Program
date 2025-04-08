@@ -133,7 +133,7 @@ def graph_menu():
 3 to see a line graph of both over time
 4 to exit
 Your answer here:
-''')
+''').strip()
         user_input = is_int(user_input)
         
         if user_input == 1:

@@ -81,7 +81,7 @@ def sign_in(): #
             print("\nCreated new profile") #Now they go back and can go log in to that account
 
         elif sign_in_choice == '3':
-            print('\n\nThank you for using your Personal Finance Program!\n\n\n')
+            print('\n\nThank you for using this Personal Finance Program!\n\n\n')
             exit()
         else:
             print('\nThat is not an option. Try again...  (Please type the corresponding number)')

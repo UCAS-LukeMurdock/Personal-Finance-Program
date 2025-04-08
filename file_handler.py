@@ -29,7 +29,7 @@ def find_active(users): # Finds active user index
         if user["Active"] == True:
             return ind
 
-def remove_user():
+def remove_user(): # Removes the Active User and displays what it did
     users = read_file()
     user_ind = find_active(users)
     print(f"\nThe User {users[user_ind]['Name']} was Removed\nYou have logged out")

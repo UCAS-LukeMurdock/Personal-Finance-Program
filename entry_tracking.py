@@ -11,6 +11,8 @@ def entry_tracking():
     users = read_file()
     #Finds the active user
     user_ind = find_active(users)
+
+    print('\nThe entry tracker lets you add new entries of either an income or expense which both include the amount and what type. You can then view them in a variety of ways to help you keep track of your finances.')
     while True:
         options = input('\nWhat would you like to do?:\n1. add an income entry\n2. add an expense entry\n3. view income and expenses\n4. exit\n\nYour choice here: ').strip()
         

@@ -16,12 +16,12 @@ def budget():
 
     try:
         #Gathers the users input for spending limits in the categories
-        housing = float(input('\nHow much do you want your limit to be on housing:\n'))
-        food = float(input('\nHow much do you want your limit to be on food:\n'))
-        utilities = float(input('\nHow much do you want your limit to be on utilities:\n'))
-        transportation = float(input('\nHow much do you want your limit to be on transportation:\n'))
-        insurance = float(input('\nHow much do you want your limit to be on insurance:\n'))
-        other = float(input('\nHow much do you want your limit to be on other things:\n'))
+        housing = float(input('\nHow much do you want your limit to be on housing:\n').strip())
+        food = float(input('\nHow much do you want your limit to be on food:\n').strip())
+        utilities = float(input('\nHow much do you want your limit to be on utilities:\n').strip())
+        transportation = float(input('\nHow much do you want your limit to be on transportation:\n').strip())
+        insurance = float(input('\nHow much do you want your limit to be on insurance:\n').strip())
+        other = float(input('\nHow much do you want your limit to be on other expenses:\n').strip())
 
     #Error Handling
     except:
@@ -47,10 +47,11 @@ def budget():
         elif expense[2] == 'other':
             spent_other += float(expense[1])
 
-    categories = [[spent_housing, housing, "housing"], [spent_food, food, "food"], [spent_utilities, utilities, "utilities",], [spent_transportation, transportation, "transportation",], [spent_insurance, insurance, "insurance",], [spent_other, other, "other"]]
+    categories = [[spent_housing, housing, "housing"], [spent_food, food, "food"], [spent_utilities, utilities, "utilities",], [spent_transportation, transportation, "transportation",], [spent_insurance, insurance, "insurance",], [spent_other, other, "other expenses"]]
 
     #This is a helper function that displays the details of each category
     def display(spent, limit, name):
+        dif = spent - limit
         if limit == 0:
             if spent > 0:
                 percent = ">100"
@@ -60,7 +61,7 @@ def budget():
                 percent = "<100"
         else:
             percent = round(spent/limit * 100, 2)
-        print(f'\n{name.title()}: Spent- ${spent}   Limit- ${limit}   How much over Limit- {spent-limit}   Percentage of Limit Met- {percent}%')
+        print(f'\n{name.title()}: Spent- ${spent}   Limit- ${limit}   How much over Limit- ${dif}   Percentage of Limit Met- {percent}%\n{f"You went over your {name} limit." if dif > 0 else f'You stayed within your {name} limit'}')
 
     #Iterates over categories to display spending details
     for each in categories:
