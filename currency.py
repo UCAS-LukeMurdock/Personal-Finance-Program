@@ -3,7 +3,8 @@
 def convert(): # Converts and displays inputted amount of an inputted currency into another inputted currency
     currencies = [["USD",1],["EUR",0.92782],["JPY",150.38],["GBP",0.77477],["AUD",1.58555],["CAD",1.427],["CHF",0.88371],["CNH",0.88371],["HKD",7.77528],["NZD",1.74173]]
     
-    print("\nDisclaimer:\nThis Currency Converter is not fully accurate because currency values are constantly changing.")
+    print("\nThis currency converter lets you convert an inputted amount of money from your starting currency into your desired ending currency. The currency options are the ten most used currencies.")
+    print("\nDisclaimer:\nThis currency converter is not fully accurate because currency values are constantly changing.")
     while True:
         try:
             amount = float(input('\nHow much money are you converting? [Type "0" to Exit] (Input a Number):\n').strip())
