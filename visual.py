@@ -194,5 +194,3 @@ Your answer here:
         #show graph
         print("\nto continue, exit the graph\n")
         plt.show()
-
-graph_menu()
